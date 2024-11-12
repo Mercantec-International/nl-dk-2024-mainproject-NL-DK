@@ -1,0 +1,56 @@
+/* Navbar Styles */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+}
+
+.navbar-brand {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar-brand:hover {
+    color: #ffd4a6;
+    /* Light blue color on hover */
+}
+
+.nav-link {
+    color: #ffffff;
+    transition: color 0.3s ease;
+    text-wrap: auto;
+}
+
+.nav-link:hover {
+    color: #ffd4a6;
+    /* Light blue color */
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: #ffd4a6 !important;
+    /* Force light blue when active */
+}
+
+.navbar-toggler {
+    background-color: #ffd4a6;
+}
+
+@media (max-width: 768px) {
+    .navbar-toggler {
+        /*margin-left: 250px;*/
+        margin-right: 0%;
+    }
+}
+
+footer p {
+    margin: 0;
+}
