@@ -19,7 +19,7 @@
 }
 
 .navbar-brand:hover {
-    color: #ffd4a6;
+    color: #a6fffb;
     /* Light blue color on hover */
 }
 
@@ -30,13 +30,13 @@
 }
 
 .nav-link:hover {
-    color: #ffd4a6;
+    color: #a6fcff;
     /* Light blue color */
 }
 
 .nav-link.active {
     font-weight: bold;
-    color: #ffd4a6 !important;
+    color: #a6fffc !important;
     /* Force light blue when active */
 }
 
