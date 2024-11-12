@@ -55,6 +55,10 @@ function headerHTML($title = "Default")
 function footerHTML()
 {
     ?>
+        <footer>
+            <p>&copy; <?php echo date("Y"); ?> Rocket League - Project Apollo. All rights reserved.</p>
+            <a href="#" class="back-to-top">Back to Top</a>
+        </footer>
     </body>
     </html>
     <?php
