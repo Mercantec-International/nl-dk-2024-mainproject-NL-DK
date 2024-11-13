@@ -1,0 +1,48 @@
+# Ignore node_modules and build directories for Tailwind
+node_modules/
+dist/
+build/
+public/css/*   # If compiled Tailwind CSS is stored here
+*.css.map
+
+# Tailwind config file cache
+tailwind.config.js
+
+# Ignore Laravel-specific files (if using Laravel)
+vendor/
+.env
+.env.*        # Exclude any additional .env files (e.g., .env.testing)
+.phpunit.result.cache
+storage/
+bootstrap/cache/
+
+# Composer dependencies and lock file
+composer.phar
+composer.lock
+
+# Ignore temporary PHP files and caches
+*.phpunit.result.cache
+*.cache
+*.log
+
+# Ignore local server and IDE config files
+Homestead.yaml
+Homestead.json
+.vagrant/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux system files
+*~
+# Windows system files
+Thumbs.db
+ehthumbs.db
