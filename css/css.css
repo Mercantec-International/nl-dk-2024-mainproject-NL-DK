@@ -60,25 +60,6 @@ h2 {
     color: #ffffff;
 }
 
-/* Footer Styles */
-footer {
-    background-color: #333;
-    color: #ffffff;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: auto;
-}
-
-footer a {
-    color: #a6fffb;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-footer a:hover {
-    color: #ffffff;
-}
-
 .back-to-top {
     display: inline-block;
     margin-top: 20px;
@@ -109,52 +90,6 @@ footer a:hover {
 .card-title {
     font-weight: bold;
     color: #3834D9;
-}
-
-/* Navbar Styles */
-.navbar {
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100%;
-}
-
-.navbar-brand {
-    color: #ffffff;
-    font-size: 1.5rem;
-    font-weight: bold;
-    position: relative;
-    z-index: 1;
-    transition: color 0.3s ease;
-}
-
-.navbar-brand img {
-    height: 40px;
-    margin-right: 10px;
-}
-
-.navbar-brand:hover {
-    color: #a6fffb;
-    /* Light blue color on hover */
-}
-
-.nav-link {
-    color: #ffffff;
-    transition: color 0.3s ease;
-    text-wrap: auto;
-}
-
-.nav-link:hover {
-    color: #a6fcff;
-    /* Light blue color */
-}
-
-.nav-link.active {
-    font-weight: bold;
-    color: #a6fffc !important;
-    /* Force light blue when active */
-}
-
-.navbar-toggler {
-    background-color: #a6fcff;
 }
 
 @media (max-width: 768px) {
