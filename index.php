@@ -13,32 +13,40 @@ headerHTML("Home");
 <!-- Content Sections -->
 <div class="container mx-auto my-16 px-4">
     <!-- About Section -->
-    <section class="text-center my-16">
-        <h2 class="text-3xl font-semibold">About Us</h2>
-        <p class="mt-4 text-black">Meet the team behind Rocket League’s pioneering Project Apollo. Our mission is to push the boundaries of space technology through innovation and collaboration.</p>
-        <a href="aboutus.php" class="inline-block mt-4 border border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-600 hover:text-white">Meet Our Team</a>
-    </section>
+    <div class="p-20 text-center">
+        <h2 class="text-[#4D5057] text-4xl mb-2 font-bold">About Us</h2>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="font-bold text-2xl mb-2 text-[#4D5057]">Meet the team behind Rocket League’s pioneering Project Apollo. Our mission is to push the boundaries of space technology through innovation and collaboration.</h2>
+            <a href="aboutus.php" class="inline-block mt-4 border-2 border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg hover:bg-[#91B7C7] hover:border-[#91B7C7] hover:text-white">Meet Our Team</a>
+        </div>
+    </div>
 
     <!-- Project Overview Section -->
-    <section class="text-center my-16">
-        <h2 class="text-3xl font-semibold">About Project Apollo</h2>
-        <p class="mt-4 text-black">Project Apollo is focused on the design and testing of a mini rocket prototype, measuring critical flight data such as speed, altitude, and humidity. Our goal is to achieve remarkable accuracy and efficiency for future space missions.</p>
-        <a href="project.php" class="inline-block mt-4 border border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-600 hover:text-white">Explore Our Project</a>
-    </section>
+    <div class="p-20 text-center">
+        <h2 class="text-[#4D5057] text-4xl mb-2 font-bold">About Project Apollo</h2>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="font-bold text-2xl mb-2 text-[#4D5057]">Project Apollo is focused on the design and testing of a mini rocket prototype, measuring critical flight data such as speed, altitude, and humidity. Our goal is to achieve remarkable accuracy and efficiency for future space missions.</h2>
+            <a href="project.php" class="inline-block mt-4 border-2 border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg hover:bg-[#91B7C7] hover:border-[#91B7C7] hover:text-white">Explore Our Project</a>
+        </div>
+    </div>
 
     <!-- Data Section -->
-    <section class="text-center my-16">
-        <h2 class="text-3xl font-semibold">Prototype Data</h2>
-        <p class="mt-4 text-black">Explore real-time and recorded data from our mini rocket prototype, including metrics like speed, altitude, and environmental conditions.</p>
-        <a href="data.php" class="inline-block mt-4 border border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-600 hover:text-white">View Data</a>
-    </section>
+    <div class="p-20 text-center">
+        <h1 class="text-[#4D5057] text-4xl mb-2 font-bold">Prototype Data</h1>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="font-bold text-2xl mb-2 text-[#4D5057]">Explore real-time and recorded data from our mini rocket prototype, including metrics like speed, altitude, and environmental conditions.</h2>
+            <a href="data.php" class="inline-block mt-4 border-2 border-indigo-600 text-indigo-600 px-4 py-2 rounded-xl hover:bg-[#91B7C7] hover:border-[#91B7C7] hover:text-white">View Data</a>
+        </div>
+    </div>
 
     <!-- Cross-Country Comparison Section -->
-    <section class="text-center my-16">
-        <h2 class="text-3xl font-semibold">Cross-Country Comparison</h2>
-        <p class="mt-4 text-black">Compare our rocket's performance across different terrains and atmospheric conditions. Learn how it adapts to a variety of environments.</p>
-        <a href="comparison.php" class="inline-block mt-4 border border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-600 hover:text-white">See Comparisons</a>
-    </section>
+    <div class="p-20 text-center">
+        <h2 class="text-[#4D5057] text-4xl mb-2 font-bold">Cross-Country Comparison</h2>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="font-bold text-2xl mb-2 text-[#4D5057]">Compare our rocket's performance across different terrains and atmospheric conditions. Learn how it adapts to a variety of environments.</h2>
+            <a href="comparison.php" class="inline-block mt-4 border-2 border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg hover:bg-[#91B7C7] hover:border-[#91B7C7] hover:text-white">See Comparisons</a>
+        </div>
+    </div>
 </div>
 
 
