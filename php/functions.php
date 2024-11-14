@@ -27,52 +27,61 @@ function headerHTML($title = "Default")
     </head>
 
     <body>
-        <nav class="bg-gray-700">
+        <nav class="bg-gray-700 w-full shadow-md">
             <div class="container mx-auto flex items-center justify-between px-4 py-3">
-                <a href="index.php" class="flex items-center text-white space-x-2">
-                    <img src="media/images/Logo_project_apollo.png" alt="Logo" class="h-8">
-                    <span class="text-xl font-semibold">Project Apollo</span>
+                <!-- Logo and Title -->
+                <a href="index.php" class="flex items-center text-white space-x-2 transition-colors duration-300 hover:text-[#a6fffb]">
+                    <img src="media/images/Logo_project_apollo.png" alt="Logo" class="h-10 mr-2">
+                    <span class="text-xl font-bold relative z-10">Project Apollo</span>
                 </a>
+
                 <!-- Mobile Menu Button -->
-                <button class="sm:hidden text-gray-400 hover:text-white focus:outline-none" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <button class="sm:hidden p-2 rounded bg-[#a6fcff] focus:outline-none" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
+
                 <!-- Navbar Links -->
                 <div class="hidden sm:flex sm:items-center" id="navbarNav">
                     <ul class="flex space-x-4">
                         <li>
-                            <a href="aboutus.php" class="px-3 py-2 rounded <?php echo basename($_SERVER['PHP_SELF']) == 'aboutus.php' ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:text-white'; ?>">About Us</a>
+                            <a href="aboutus.php" class="px-3 py-2 rounded transition-colors duration-300 text-white <?php echo basename($_SERVER['PHP_SELF']) == 'aboutus.php' ? 'font-bold text-[#a6fffc]' : 'hover:text-[#a6fcff]'; ?>">
+                                About Us
+                            </a>
                         </li>
                         <li>
-                            <a href="project.php" class="px-3 py-2 rounded <?php echo basename($_SERVER['PHP_SELF']) == 'project.php' ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:text-white'; ?>">Project</a>
+                            <a href="project.php" class="px-3 py-2 rounded transition-colors duration-300 text-white <?php echo basename($_SERVER['PHP_SELF']) == 'project.php' ? 'font-bold text-[#a6fffc]' : 'hover:text-[#a6fcff]'; ?>">
+                                Project
+                            </a>
                         </li>
                         <li>
-                            <a href="data.php" class="px-3 py-2 rounded <?php echo basename($_SERVER['PHP_SELF']) == 'data.php' ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:text-white'; ?>">Data</a>
+                            <a href="data.php" class="px-3 py-2 rounded transition-colors duration-300 text-white <?php echo basename($_SERVER['PHP_SELF']) == 'data.php' ? 'font-bold text-[#a6fffc]' : 'hover:text-[#a6fcff]'; ?>">
+                                Data
+                            </a>
                         </li>
                         <li>
-                            <a href="comparison.php" class="px-3 py-2 rounded <?php echo basename($_SERVER['PHP_SELF']) == 'comparison.php' ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:text-white'; ?>">Comparison</a>
+                            <a href="comparison.php" class="px-3 py-2 rounded transition-colors duration-300 text-white <?php echo basename($_SERVER['PHP_SELF']) == 'comparison.php' ? 'font-bold text-[#a6fffc]' : 'hover:text-[#a6fcff]'; ?>">
+                                Comparison
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-
     <?php
 }
 
 function footerHTML()
 {
     ?>
-        <footer>
+        <footer class="bg-gray-700 text-white py-5 text-center mt-auto">
             <p>&copy; <?php echo date("Y"); ?> Rocket League - Project Apollo. All rights reserved.</p>
-            <a href="#" class="back-to-top">Back to Top</a>
+            <a href="#" class="text-[#a6fffb] no-underline mx-2 hover:text-white">Back to Top</a>
         </footer>
-    </body>
 
-    </html>
-<?php
+
+    <?php
 }
 
-?>
+    ?>
