@@ -13,4 +13,6 @@ public class AppDBContext : DbContext
     public DbSet<RPM> RPMs { get; set; }
     public DbSet<TempHumidity> TempHumidityObjects { get; set; }
     public DbSet<Car> Cars { get; set; }
+
+public DbSet<api.Models.User> User { get; set; } = default!;
 }
