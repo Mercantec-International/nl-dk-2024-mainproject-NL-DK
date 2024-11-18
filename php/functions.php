@@ -1,5 +1,24 @@
 <?php
 
+function db_connect()
+{
+    // Establishes location of database
+    $host = "localhost";
+    $user = "root";
+    $pass = "";
+    $data = "projectapollo";
+
+    // Makes a connection
+    $conn = new mysqli($host, $user, $pass, $data);
+
+    if($conn->connect_errno) // In case of an error
+    {
+        die("connection with database " . $data . " failed!!");
+    }
+
+    return $conn;
+}
+
 function headerHTML($title = "Default")
 {
 ?>
