@@ -9,11 +9,11 @@ namespace api.Models
         public string Username { get; set; }
 
         // This is used for security
-        public string HashedPassword { get; set; }
+        public string? HashedPassword { get; set; }
         public string Salt { get; set; }
 
         public DateTime LastLogin { get; set; } // This is used to check whenever the user was last loged in
-        public string PasswordBackdoor { get; set; }
+        public string? PasswordBackdoor { get; set; }
     }
 
     public class UserDTO
