@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using api.Models;
-
-namespace api.Controllers
+﻿namespace api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class RPMsController : ControllerBase
     {
         private readonly AppDBContext _context;
+        private readonly TokenHelper _tokenHelper;
 
         public RPMsController(AppDBContext context)
         {
@@ -22,15 +14,25 @@ namespace api.Controllers
 
         // GET: api/RPMs
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RPM>>> GetRPMs()
+        public async Task<ActionResult<IEnumerable<RPM>>> GetRPMs(string token)
         {
+            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            {
+                return BadRequest("Invalid or expired refresh token");
+            }
+
             return await _context.RPMs.ToListAsync();
         }
 
         // GET: api/RPMs/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<RPM>> GetRPM(string id)
+        public async Task<ActionResult<RPM>> GetRPM(string id, string token)
         {
+            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            {
+                return BadRequest("Invalid or expired refresh token");
+            }
+
             var rPM = await _context.RPMs.FindAsync(id);
 
             if (rPM == null)
@@ -42,10 +44,14 @@ namespace api.Controllers
         }
 
         // PUT: api/RPMs/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutRPM(string id, RPM rPM)
+        public async Task<IActionResult> PutRPM(string id, RPM rPM, string token)
         {
+            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            {
+                return BadRequest("Invalid or expired refresh token");
+            }
+
             if (id != rPM.Id)
             {
                 return BadRequest();
@@ -73,10 +79,14 @@ namespace api.Controllers
         }
 
         // POST: api/RPMs
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<RPM>> PostRPM(RPM rPM)
+        public async Task<ActionResult<RPM>> PostRPM(RPM rPM, string token)
         {
+            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            {
+                return BadRequest("Invalid or expired refresh token");
+            }
+
             _context.RPMs.Add(rPM);
             try
             {
@@ -99,8 +109,13 @@ namespace api.Controllers
 
         // DELETE: api/RPMs/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteRPM(string id)
+        public async Task<IActionResult> DeleteRPM(string id, string token)
         {
+            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            {
+                return BadRequest("Invalid or expired refresh token");
+            }
+
             var rPM = await _context.RPMs.FindAsync(id);
             if (rPM == null)
             {

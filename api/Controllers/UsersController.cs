@@ -1,25 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using api.Models;
-using System.Text.RegularExpressions;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using Microsoft.AspNetCore.Authorization;
-
-namespace api.Controllers
+﻿namespace api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly AppDBContext _context;
+        private readonly TokenHelper _tokenHelper;
         private readonly IConfiguration _configuration;
 
         public UsersController(AppDBContext context)
@@ -30,8 +16,13 @@ namespace api.Controllers
         // GET: api/User
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserDTO>>> GetUser()
+        public async Task<ActionResult<IEnumerable<UserDTO>>> GetUser(string token)
         {
+            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            {
+                return BadRequest("Invalid or expired refresh token");
+            }
+
             var User = await _context.User.Select(user => new UserDTO
             {
                 Id = user.Id,
@@ -45,8 +36,13 @@ namespace api.Controllers
 
         // GET: api/Users/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(string id)
+        public async Task<ActionResult<User>> GetUser(string id, string token)
         {
+            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            {
+                return BadRequest("Invalid or expired refresh token");
+            }
+
             var user = await _context.User.FindAsync(id);
 
             if (user == null)
@@ -59,8 +55,13 @@ namespace api.Controllers
 
         // PUT: api/Users/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(string id, User user)
+        public async Task<IActionResult> PutUser(string id, User user, string token)
         {
+            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            {
+                return BadRequest("Invalid or expired refresh token");
+            }
+
             if (id != user.Id)
             {
                 return BadRequest();
@@ -132,7 +133,19 @@ namespace api.Controllers
                     return Unauthorized(new { message = "Invalid email or password." });
                 }
 
-                var token = GenerateJwtToken(user);
+                var token = GenerateJWT(user);
+
+                var refreshToken = new JWT
+                {
+                    RefreshToken = token,
+                    UserId = user.Id,
+                    ExpiryDate = DateTime.UtcNow.AddDays(1), // Refresh token valid for 1 day
+                    CreatedDate = DateTime.UtcNow
+                };
+
+                _context.Token.Add(refreshToken);
+                await _context.SaveChangesAsync();
+
                 return Ok(new { token, user.Username, user.Id });
             }
             catch (Exception ex)
@@ -142,7 +155,7 @@ namespace api.Controllers
             }
         }
 
-        private string GenerateJwtToken(User user)
+        private string GenerateJWT(User user)
         {
             var keyString = _configuration["JwtSettings:Key"] ?? Environment.GetEnvironmentVariable("Key");
             var issuer = _configuration["JwtSettings:Issuer"] ?? Environment.GetEnvironmentVariable("Issuer");
@@ -173,6 +186,17 @@ namespace api.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        private string GenerateRefreshToken()
+        {
+            var randomNumber = new byte[32];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(randomNumber);
+            }
+            return Convert.ToBase64String(randomNumber);
+        }
+
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]

@@ -1,7 +1,4 @@
-﻿using API.Models;
-using System.Data;
-
-namespace api.Models
+﻿namespace api.Models
 {
     public class User : Common
     {

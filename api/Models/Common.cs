@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace API.Models
+﻿namespace api.Models
 {
     public abstract class Common
     {

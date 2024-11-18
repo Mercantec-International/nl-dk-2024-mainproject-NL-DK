@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using api.Models;
-
-namespace api.Controllers
+﻿namespace api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class TempHumiditiesController : ControllerBase
     {
         private readonly AppDBContext _context;
+        private readonly TokenHelper _tokenHelper;
 
         public TempHumiditiesController(AppDBContext context)
         {
@@ -22,15 +14,25 @@ namespace api.Controllers
 
         // GET: api/TempHumidities
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TempHumidity>>> GetTempHumidityObjects()
+        public async Task<ActionResult<IEnumerable<TempHumidity>>> GetTempHumidityObjects(string token)
         {
+            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            {
+                return BadRequest("Invalid or expired refresh token");
+            }
+
             return await _context.TempHumidityObjects.ToListAsync();
         }
 
         // GET: api/TempHumidities/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TempHumidity>> GetTempHumidity(string id)
+        public async Task<ActionResult<TempHumidity>> GetTempHumidity(string id, string token)
         {
+            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            {
+                return BadRequest("Invalid or expired refresh token");
+            }
+
             var tempHumidity = await _context.TempHumidityObjects.FindAsync(id);
 
             if (tempHumidity == null)
@@ -42,10 +44,14 @@ namespace api.Controllers
         }
 
         // PUT: api/TempHumidities/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTempHumidity(string id, TempHumidity tempHumidity)
+        public async Task<IActionResult> PutTempHumidity(string id, TempHumidity tempHumidity, string token)
         {
+            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            {
+                return BadRequest("Invalid or expired refresh token");
+            }
+
             if (id != tempHumidity.Id)
             {
                 return BadRequest();
@@ -73,10 +79,14 @@ namespace api.Controllers
         }
 
         // POST: api/TempHumidities
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<TempHumidity>> PostTempHumidity(TempHumidity tempHumidity)
+        public async Task<ActionResult<TempHumidity>> PostTempHumidity(TempHumidity tempHumidity, string token)
         {
+            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            {
+                return BadRequest("Invalid or expired refresh token");
+            }
+
             _context.TempHumidityObjects.Add(tempHumidity);
             try
             {
@@ -99,8 +109,13 @@ namespace api.Controllers
 
         // DELETE: api/TempHumidities/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTempHumidity(string id)
+        public async Task<IActionResult> DeleteTempHumidity(string id, string token)
         {
+            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            {
+                return BadRequest("Invalid or expired refresh token");
+            }
+
             var tempHumidity = await _context.TempHumidityObjects.FindAsync(id);
             if (tempHumidity == null)
             {

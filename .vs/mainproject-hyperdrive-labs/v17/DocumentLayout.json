@@ -3,56 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\services\\tokenhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\services\\tokenhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\controllers\\temphumiditiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\controllers\\temphumiditiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\context\\using.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\context\\using.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\controllers\\rpmscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\controllers\\rpmscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\models\\jwt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\models\\jwt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\controllers\\carscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\controllers\\carscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\controllers\\rpmscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\controllers\\rpmscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\models\\common.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\models\\common.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\models\\rpm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\models\\rpm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\models\\temphumidity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\models\\temphumidity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mads020n\\source\\repos\\hyberdrivelabs\\api\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,8 +46,60 @@
       "DocumentGroups": [
         {
           "DockedWidth": 132,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Using.cs",
+              "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Context\\Using.cs",
+              "RelativeDocumentMoniker": "api\\Context\\Using.cs",
+              "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Context\\Using.cs",
+              "RelativeToolTip": "api\\Context\\Using.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T12:28:51.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TokenHelper.cs",
+              "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Services\\TokenHelper.cs",
+              "RelativeDocumentMoniker": "api\\Services\\TokenHelper.cs",
+              "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Services\\TokenHelper.cs",
+              "RelativeToolTip": "api\\Services\\TokenHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T12:21:55.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RPMsController.cs",
+              "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Controllers\\RPMsController.cs",
+              "RelativeDocumentMoniker": "api\\Controllers\\RPMsController.cs",
+              "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Controllers\\RPMsController.cs",
+              "RelativeToolTip": "api\\Controllers\\RPMsController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T12:17:45.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CarsController.cs",
+              "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Controllers\\CarsController.cs",
+              "RelativeDocumentMoniker": "api\\Controllers\\CarsController.cs",
+              "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Controllers\\CarsController.cs",
+              "RelativeToolTip": "api\\Controllers\\CarsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHsAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T11:56:57.121Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -75,168 +111,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AppDBContext.cs",
+              "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Context\\AppDBContext.cs",
+              "RelativeDocumentMoniker": "api\\Context\\AppDBContext.cs",
+              "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Context\\AppDBContext.cs",
+              "RelativeToolTip": "api\\Context\\AppDBContext.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAIwBAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T09:43:01.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "JWT.cs",
+              "DocumentMoniker": "C:\\Users\\mads020n\\Source\\Repos\\HyberDriveLabs\\api\\Models\\JWT.cs",
+              "RelativeDocumentMoniker": "api\\Models\\JWT.cs",
+              "ToolTip": "C:\\Users\\mads020n\\Source\\Repos\\HyberDriveLabs\\api\\Models\\JWT.cs",
+              "RelativeToolTip": "api\\Models\\JWT.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T09:39:27.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "api\\Controllers\\UsersController.cs",
               "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Controllers\\UsersController.cs",
               "RelativeToolTip": "api\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAYwIcAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-15T08:36:40.997Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Models\\User.cs",
               "RelativeDocumentMoniker": "api\\Models\\User.cs",
               "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Models\\User.cs",
               "RelativeToolTip": "api\\Models\\User.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAACAAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-15T08:34:07.241Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TempHumiditiesController.cs",
-              "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Controllers\\TempHumiditiesController.cs",
-              "RelativeDocumentMoniker": "api\\Controllers\\TempHumiditiesController.cs",
-              "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Controllers\\TempHumiditiesController.cs",
-              "RelativeToolTip": "api\\Controllers\\TempHumiditiesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T08:17:26.913Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RPMsController.cs",
-              "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Controllers\\RPMsController.cs",
-              "RelativeDocumentMoniker": "api\\Controllers\\RPMsController.cs",
-              "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Controllers\\RPMsController.cs",
-              "RelativeToolTip": "api\\Controllers\\RPMsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T08:10:40.246Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\appsettings.json",
               "RelativeDocumentMoniker": "api\\appsettings.json",
               "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\appsettings.json",
               "RelativeToolTip": "api\\appsettings.json",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAqwAgAAAB0AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-11-13T10:37:24.922Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CarsController.cs",
-              "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Controllers\\CarsController.cs",
-              "RelativeDocumentMoniker": "api\\Controllers\\CarsController.cs",
-              "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Controllers\\CarsController.cs",
-              "RelativeToolTip": "api\\Controllers\\CarsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T11:28:39.698Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Dockerfile",
-              "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Dockerfile",
-              "RelativeDocumentMoniker": "api\\Dockerfile",
-              "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Dockerfile",
-              "RelativeToolTip": "api\\Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-13T11:22:50.348Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Program.cs",
-              "RelativeDocumentMoniker": "api\\Program.cs",
-              "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Program.cs",
-              "RelativeToolTip": "api\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T09:52:29.232Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "AppDBContext.cs",
-              "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Context\\AppDBContext.cs",
-              "RelativeDocumentMoniker": "api\\Context\\AppDBContext.cs",
-              "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Context\\AppDBContext.cs",
-              "RelativeToolTip": "api\\Context\\AppDBContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T10:34:11.373Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "RPM.cs",
-              "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Models\\RPM.cs",
-              "RelativeDocumentMoniker": "api\\Models\\RPM.cs",
-              "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Models\\RPM.cs",
-              "RelativeToolTip": "api\\Models\\RPM.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T09:15:17.911Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Car.cs",
-              "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Models\\Car.cs",
-              "RelativeDocumentMoniker": "api\\Models\\Car.cs",
-              "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Models\\Car.cs",
-              "RelativeToolTip": "api\\Models\\Car.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T09:15:33.326Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "TempHumidity.cs",
-              "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Models\\TempHumidity.cs",
-              "RelativeDocumentMoniker": "api\\Models\\TempHumidity.cs",
-              "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Models\\TempHumidity.cs",
-              "RelativeToolTip": "api\\Models\\TempHumidity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T09:16:10.918Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Common.cs",
-              "DocumentMoniker": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Models\\Common.cs",
-              "RelativeDocumentMoniker": "api\\Models\\Common.cs",
-              "ToolTip": "C:\\Users\\mads020n\\source\\repos\\HyberDriveLabs\\api\\Models\\Common.cs",
-              "RelativeToolTip": "api\\Models\\Common.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T09:15:55.269Z",
               "EditorCaption": ""
             }
           ]
