@@ -3,7 +3,7 @@
     public class RPM : Common
     {
         public int Speed { get; set; }
-        public String CarId { get; set; }
+        public string CarId { get; set; }
         public Car Car { get; set; }
     }
 
