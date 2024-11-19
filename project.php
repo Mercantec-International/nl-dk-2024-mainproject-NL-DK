@@ -173,25 +173,23 @@ headerHTML("Project");
 </div>
 
 <div class="flex flex-wrap bg-purple-100 p-8">
-    <div class="bg-cover bg-bottom border w-full md:w-1/3 h-64 md:h-auto relative" style="background-image:url('https://images7.alphacoders.com/347/347549.jpg')">
+    <div class="bg-cover bg-bottom border w-full md:w-1/3 h-64 md:h-auto relative" style="background-image:url('https://media.kasperskydaily.com/wp-content/uploads/sites/99/2020/01/12172714/36c3-open-source-hardware-dangers-featured.jpg')">
         <div class="absolute top-4 left-4 text-xl">
             <i class="fa fa-heart text-white hover:text-red-500 cursor-pointer"></i>
         </div>
     </div>
-    <!-- Hardware/specs Description -->
     <div class="bg-white w-full md:w-2/3">
         <div class="h-full mx-auto px-6 md:px-0 md:pt-6 md:-ml-6 relative">
             <div class="bg-white lg:h-full p-6 -mt-6 md:mt-0 relative mb-4 md:mb-0 flex flex-wrap md:flex-wrap items-center">
                 <div class="w-full lg:w-1/5 lg:border-r text-center md:text-left">
-                    <h3>The Rocket Hardware/Specs </h3>
+                    <h3>Hardware/Specs Description</h3>
                     <p class="mb-0 mt-3 text-grey-dark text-sm italic">Explanation</p>
                     <hr class="w-1/4 md:ml-0 mt-4 border lg:hidden">
                 </div>
-
-                <!-- Hardware/Specs Description -->
+                <!-- Details Description -->
                 <div class="w-full lg:w-3/5 lg:px-3">
                     <p class="text-md mt-4 lg:mt-0 text-justify md:text-left text-sm">
-                        <span class="font-semibold">The Hardware/Specs Description:</span>
+                        <span class="font-semibold">The more detailed description:</span>
                     </p>
                     <ul class="list-disc pl-6 space-y-4 text-sm md:text-md mt-4">
                         <li>
