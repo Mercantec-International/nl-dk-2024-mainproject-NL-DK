@@ -53,11 +53,17 @@ headerHTML("About Us");
   Lorem Ipsum is by far the most widely used placeholder text in the design and development world. This pseudo-Latin text has been around since the 1500s, and it gives designers and developers the freedom to focus on design elements without being distracted by actual content.  </p>
 </div>
 
+
+
+
+
+
 <!-- Custom Clip-path for Tailwind -->
 <style>
   .clip-path-custom {
     clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
   }
+  
 </style>
 
     </div>
