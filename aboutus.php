@@ -32,7 +32,9 @@ headerHTML("About Us");
         <span class="font-bold text-white text-center text-[1em] block">Lucas</span>
         <span class="text-center text-white font-semibold text-[0.90em]">Back-End</span>
         <p class="info font-normal text-white text-center text-[0.85em] mx-[1em] my-[1em]">
-          Lorem Ipsum is by far the most widely used placeholder text in the design and development world. This pseudo-Latin text has been around since the 1500s, and it gives designers and developers the freedom to focus on design elements without being distracted by actual content. </p>
+          Hello! I am Lucas! I like playing games and making them too. I am experienced in C#, Javascript, Laravel, PHP and C.
+        </p>
+        <!-- <p style="color: rgba(0, 0, 0, 0);">I will find you.</p> -->
       </div>
       <!-- Sample Team Member Card -->
       <div class="card w-[17em] h-[22.5em] bg-[#353839] transition duration-500 ease-in-out clip-path-custom rounded-tr-[20px] rounded-bl-[20px] flex flex-col">
