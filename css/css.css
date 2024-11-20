@@ -103,5 +103,18 @@ footer p {
     margin: 0;
 }
 
+#launchData h3,
+#launchData h4 {
+    margin-top: 30px;
+    color: #3834D9;
+}
 
+.table {
+    margin-top: 20px;
+    width: 100%;
+}
 
+canvas {
+    margin-top: 20px;
+    max-width: 100%;
+}
