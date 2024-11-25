@@ -133,12 +133,12 @@ headerHTML("Project");
                         <div class="flex items-center">
                             <input
                                 type="checkbox"
-                                id="06"
+                                id="07"
                                 class="checkbox appearance-none w-4 h-4 border-2 border-gray-300 rounded-sm checked:bg-indigo-600 checked:border-indigo-600 transition-all duration-300" />
                             <label
-                                for="06"
+                                for="07"
                                 class="ml-2 text-gray-700 cursor-pointer transition-all duration-300 checked:line-through checked:text-gray-400">
-                                Cross-Country Comparison
+                                Tested In NLL
                             </label>
                         </div>
                         <!-- Checkbox 7 -->
@@ -150,19 +150,19 @@ headerHTML("Project");
                             <label
                                 for="07"
                                 class="ml-2 text-gray-700 cursor-pointer transition-all duration-300 checked:line-through checked:text-gray-400">
-                                Tested In NLL
+                                Tested In DKK
                             </label>
                         </div>
                         <!-- Checkbox 8 -->
                         <div class="flex items-center">
                             <input
                                 type="checkbox"
-                                id="08"
+                                id="06"
                                 class="checkbox appearance-none w-4 h-4 border-2 border-gray-300 rounded-sm checked:bg-indigo-600 checked:border-indigo-600 transition-all duration-300" />
                             <label
-                                for="08"
+                                for="06"
                                 class="ml-2 text-gray-700 cursor-pointer transition-all duration-300 checked:line-through checked:text-gray-400">
-                                Tested In DKK
+                                Cross-Country Comparison
                             </label>
                         </div>
                     </div>
@@ -188,28 +188,9 @@ headerHTML("Project");
                 </div>
                 <!-- Details Description -->
                 <div class="w-full lg:w-3/5 lg:px-3">
-                    <p class="text-md mt-4 lg:mt-0 text-justify md:text-left text-sm">
-                        <span class="font-semibold">The more detailed description:</span>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                     </p>
-                    <ul class="list-disc pl-6 space-y-4 text-sm md:text-md mt-4">
-                        <li>
-                            <span class="font-semibold">Develop a working rocket prototype:</span> Design and assemble a small-scale rocket that can be launched safely. The rocket should be capable of reaching a target altitude and capturing essential data during its flight.
-                        </li>
-                        <li>
-                            <span class="font-semibold">Implement live data streaming:</span> Integrate sensors in the rocket to capture real-time data. This data will be transmitted to a connected website for live display and analysis. The key metrics to be monitored include:
-                        </li>
-                        <ul class="list-disc pl-10 space-y-2 text-sm md:text-md mt-2">
-                            <li>
-                                <span class="font-semibold">Speed:</span> Measure the rocket’s velocity during launch, ascent, and descent phases to understand its acceleration and maximum speed.
-                            </li>
-                            <li>
-                                <span class="font-semibold">Altitude:</span> Track the rocket’s height above ground level throughout its flight to assess the maximum altitude reached and its stability at different heights.
-                            </li>
-                            <li>
-                                <span class="font-semibold">Humidity:</span> Record the atmospheric humidity levels as the rocket ascends, providing insights into atmospheric conditions at different altitudes.
-                            </li>
-                        </ul>
-                    </ul>
                 </div>
             </div>
         </div>

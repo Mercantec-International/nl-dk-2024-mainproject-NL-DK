@@ -14,10 +14,10 @@ headerHTML("About Us");
         <span class="text-center text-white font-semibold text-[0.90em]">Arduino Programmer</span>
         <span class="text-center text-white font-medium text-[0.90em] mt-2">Age: 19</span>
         <p class="bio font-normal text-white text-center text-[0.85em] mx-[1em] mt-[0.5em]">
-          Hi, I'm Julian!
+          Hi, my name is Julian Timmermans. I like to play games and listen to music.
         </p>
         <p class="info font-normal text-white text-center text-[0.85em] mx-[1em] my-[1em]">
-          etc...
+          I have experience programming in PHP, HTML, CSS, Javascript and C#. I have also worked with Arduino IDE, Bootstrap and Laravel a little bit.
         </p>
       </div>
       <!-- Sample Team Member Card -->
@@ -28,10 +28,10 @@ headerHTML("About Us");
         <span class="text-center text-white font-semibold text-[0.90em]">Arduino Programmer</span>
         <span class="text-center text-white font-medium text-[0.90em] mt-2">Age: 23</span>
         <p class="bio font-normal text-white text-center text-[0.85em] mx-[1em] mt-[0.5em]">
-          Hi, I'm Sjors!
+          Hi, I'm Sjors Pynaert I like gaming, coding and working out (mainly running on a treadmill).
         </p>
         <p class="info font-normal text-white text-center text-[0.85em] mx-[1em] my-[1em]">
-          etc...
+          I have experience with PHP, HTML, CSS, Javascript, C#, MySql, arduino and a little bit of C. I've also looked at some frameworks like bootstrap and Laravel. Other than that I'm also familiar with photoshop, figma and github.
         </p>
       </div>
       <!-- Sample Team Member Card -->
@@ -71,10 +71,11 @@ headerHTML("About Us");
         <span class="text-center text-white font-semibold text-[0.90em]">Front-End</span>
         <span class="text-center text-white font-medium text-[0.90em] mt-2">Age: 19</span>
         <p class="bio font-normal text-white text-center text-[0.85em] mx-[1em] mt-[0.5em]">
-          Hi, I'm Silas!
+          Hi, I'm Silas! I have a passion for gaming and i like to watching TV shows and movies.
         </p>
         <p class="info font-normal text-white text-center text-[0.85em] mx-[1em] my-[1em]">
-          etc...
+          I like to make websites with a focus on database integration.
+          My main programming language is C#, and I work with frameworks like Blazor to develop efficient and reliable solutions.
         </p>
       </div>
 
@@ -83,13 +84,12 @@ headerHTML("About Us");
 
 
 
-<!-- Custom Clip-path for Tailwind -->
-<style>
-  .clip-path-custom {
-    clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
-  }
-  
-</style>
+      <!-- Custom Clip-path for Tailwind -->
+      <style>
+        .clip-path-custom {
+          clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
+        }
+      </style>
       <!-- Custom Clip-path for Tailwind -->
       <style>
         .clip-path-custom {
