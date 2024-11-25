@@ -1,6 +1,6 @@
 ﻿namespace api.Models
 {
-    public class JWT
+    public class JWT : Common
     {
         public string RefreshToken { get; set; }
         public string UserId { get; set; }

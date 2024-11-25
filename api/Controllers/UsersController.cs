@@ -1,4 +1,7 @@
-﻿namespace api.Controllers
+﻿using api.Models;
+using NuGet.Common;
+
+namespace api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -7,10 +10,12 @@
         private readonly AppDBContext _context;
         private readonly TokenHelper _tokenHelper;
         private readonly IConfiguration _configuration;
+        private readonly EmailService _emailService;
 
-        public UsersController(AppDBContext context)
+        public UsersController(AppDBContext context, EmailService emailService)
         {
             _context = context;
+            _emailService = emailService;
         }
 
         // GET: api/User
@@ -109,6 +114,8 @@
 
             _context.User.Add(user);
 
+            await _emailService.SendConfirmationEmail(user.Email);
+
             try
             {
                 await _context.SaveChangesAsync();
@@ -197,6 +204,18 @@
             return Convert.ToBase64String(randomNumber);
         }
 
+        [HttpPost("confirm-email")]
+        public async Task<IActionResult> ConfirmEmail(string token, string email)
+        {
+            try
+            {
+                return Ok(new { token, email });
+            }
+            catch (Exception _)
+            {
+                return StatusCode(500, "Internal server error.");
+            }
+        }
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]

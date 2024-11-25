@@ -37,6 +37,7 @@ string connectionString = Configuration.GetConnectionString("DefaultConnection")
 
 builder.Services.AddDbContext<AppDBContext>(options =>
 options.UseNpgsql(connectionString));
+builder.Services.AddScoped<EmailService>();
 
 // Configure JWT Authentication
 builder.Services.AddAuthentication(item =>
