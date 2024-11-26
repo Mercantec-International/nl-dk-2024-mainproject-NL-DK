@@ -4,11 +4,12 @@ header('Content-Type: application/json');
 // Database connection (update these details with your actual credentials)
 $host = 'localhost';
 $db = 'arduino_dashboard';
-$user = 'root';
-$pass = '';
+$user = 'postgres'; // Default PostgreSQL username
+$pass = 'meow'; // Enter your PostgreSQL password
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+    // Connect to PostgreSQL
+    $pdo = new PDO("pgsql:host=$host;dbname=$db", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Fetch data from each table
