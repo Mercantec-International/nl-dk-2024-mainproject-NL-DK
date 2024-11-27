@@ -1,13 +1,6 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", () => {
     const elements = {
-        wifi: document.getElementById("wifi-data"),
-        rcCar: document.getElementById("rc-car-data"),
-        distance: document.getElementById("distance-data"),
-        rpm: document.getElementById("rpm-data"),
-        temperature: document.getElementById("temperature-data"), // New element for temperature
-        humidity: document.getElementById("humidity-data")        // New element for humidity
+        carList: document.getElementById("car-list") // Container for car data
     };
 
     async function fetchData() {
@@ -15,18 +8,28 @@ document.addEventListener("DOMContentLoaded", () => {
             const response = await fetch("fetch_data.php");
             const data = await response.json();
 
-            elements.wifi.textContent = data.wifiStatus || "No data";
-            elements.rcCar.textContent = data.rcCarStatus || "No data";
-            elements.distance.textContent = `${data.distance || 0} cm`;
-            elements.rpm.textContent = `${data.rpm || 0} RPM`;
-            elements.temperature.textContent = `${data.temperature || 0} °C`; // Display temperature
-            elements.humidity.textContent = `${data.humidity || 0} %`;         // Display humidity
+            console.log("API Response:", data); // Debugging log
 
-            const cameraFeed = document.getElementById("camera-feed");
-            if (data.cameraFeedUrl) {
-                cameraFeed.innerHTML = `<img src="${data.cameraFeedUrl}" alt="Live Camera Feed" />`;
+            // Clear existing data
+            elements.carList.innerHTML = "";
+
+            // Check if cars exist
+            if (data.cars && Array.isArray(data.cars) && data.cars.length > 0) {
+                data.cars.forEach(car => {
+                    const carElement = document.createElement("div");
+                    carElement.classList.add("car-item");
+                    carElement.innerHTML = `
+                        <p><strong>ID:</strong> ${car.id || "N/A"}</p>
+                        <p><strong>Created At:</strong> ${car.createdAt}</p>
+                        <p><strong>Last Emergency:</strong> ${car.lastEmergency}</p>
+                    `;
+                    elements.carList.appendChild(carElement);
+                });
             } else {
-                cameraFeed.textContent = "Live feed not available";
+                elements.carList.innerHTML = `
+                    <p>No cars available.</p>
+                    <p>Check back later or contact support if you believe this is an error.</p>
+                `;
             }
         } catch (error) {
             console.error("Error fetching data:", error);

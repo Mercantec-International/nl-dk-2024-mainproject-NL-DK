@@ -3,50 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arduino Dashboard</title>
+    <title>API Integration Dashboard</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <h1>Arduino Project Dashboard</h1>
+        <h1>Car Dashboard</h1>
     </header>
     <main>
-        <section id="wifi-status" class="sensor">
-            <h2>WiFi Status</h2>
-            <p id="wifi-data">Connecting...</p>
-        </section>
-
-        <section id="rc-car-status" class="sensor">
-            <h2>RC Car</h2>
-            <p id="rc-car-data">Waiting for data...</p>
-        </section>
-
-        <section id="ultrasonic-sensor" class="sensor">
-            <h2>Ultrasonic Distance Sensor</h2>
-            <p id="distance-data">Waiting for data...</p>
-        </section>
-
-        <section id="camera" class="sensor">
-            <h2>Camera</h2>
-            <div id="camera-feed">
-                <p>Live feed not available</p>
+        <!-- Section for Cars -->
+        <section id="cars-section" class="sensor">
+            <h2>Cars</h2>
+            <div id="car-list">
+                <p>Loading...</p>
             </div>
-        </section>
-
-        <section id="rpm-sensor" class="sensor">
-            <h2>RPM Sensor</h2>
-            <p id="rpm-data">Waiting for data...</p>
-        </section>
-
-        <!-- New sections for Temperature and Humidity -->
-        <section id="temperature-sensor" class="sensor">
-            <h2>Temperature</h2>
-            <p id="temperature-data">Waiting for data...</p>
-        </section>
-
-        <section id="humidity-sensor" class="sensor">
-            <h2>Humidity</h2>
-            <p id="humidity-data">Waiting for data...</p>
         </section>
     </main>
     <script src="js/script.js"></script>
