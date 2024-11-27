@@ -80,8 +80,9 @@
 
         // POST: api/Cars
         [HttpPost]
-        public async Task<ActionResult<Car>> PostCar(Car car, string token)
+        public async Task<ActionResult<Car>> PostCar(CarDTO dto, string token)
         {
+            Car car = MapDTOToCar(dto);
             if (await _tokenHelper.ValidToken(token) != "Valid token")
             {
                 return BadRequest("Invalid or expired refresh token");
@@ -131,6 +132,17 @@
         private bool CarExists(string id)
         {
             return _context.Cars.Any(e => e.Id == id);
+        }
+        public Car MapDTOToCar(CarDTO dto)
+        {
+            return new Car
+            {
+                Id = Guid.NewGuid().ToString("N"),
+                CreatedAt = DateTime.UtcNow.AddHours(2),
+                UpdatedAt = DateTime.UtcNow.AddHours(2),
+                UserId = dto.UserId,
+                LastEmergency = dto.LastEmergency,
+            };
         }
     }
 }

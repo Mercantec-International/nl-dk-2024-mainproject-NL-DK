@@ -13,6 +13,7 @@
         public string? PasswordBackdoor { get; set; }
         public bool IsEmailConfirmed { get; set; }
         public string? EmailConfirmationToken { get; set; }
+        public List<Car> Car { get; set; }
     }
 
     public class UserDTO

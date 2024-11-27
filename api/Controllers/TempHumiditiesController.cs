@@ -1,4 +1,6 @@
-﻿namespace api.Controllers
+﻿using api.Models;
+
+namespace api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -80,8 +82,10 @@
 
         // POST: api/TempHumidities
         [HttpPost]
-        public async Task<ActionResult<TempHumidity>> PostTempHumidity(TempHumidity tempHumidity, string token)
+        public async Task<ActionResult<TempHumidity>> PostTempHumidity(TempHumidityDTO dto, string token)
         {
+            TempHumidity tempHumidity = MapDTOToTempHumid(dto);
+
             if (await _tokenHelper.ValidToken(token) != "Valid token")
             {
                 return BadRequest("Invalid or expired refresh token");
@@ -131,6 +135,18 @@
         private bool TempHumidityExists(string id)
         {
             return _context.TempHumidityObjects.Any(e => e.Id == id);
+        }
+        public TempHumidity MapDTOToTempHumid(TempHumidityDTO dto)
+        {
+            return new TempHumidity
+            {
+                Id = Guid.NewGuid().ToString("N"),
+                CreatedAt = DateTime.UtcNow.AddHours(2),
+                UpdatedAt = DateTime.UtcNow.AddHours(2),
+                Temp = dto.Temp,
+                Humidity = dto.Humidity,
+                CarId = dto.CarId,
+            };
         }
     }
 }

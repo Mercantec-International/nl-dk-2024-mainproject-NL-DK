@@ -35,7 +35,13 @@ namespace api.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Cars");
                 });
@@ -106,14 +112,12 @@ namespace api.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("HashedPassword")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("LastLogin")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("PasswordBackdoor")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Salt")
@@ -130,6 +134,17 @@ namespace api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User");
+                });
+
+            modelBuilder.Entity("api.Models.Car", b =>
+                {
+                    b.HasOne("api.Models.User", "User")
+                        .WithMany("Car")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("api.Models.RPM", b =>
@@ -151,6 +166,11 @@ namespace api.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Car");
+                });
+
+            modelBuilder.Entity("api.Models.User", b =>
+                {
                     b.Navigation("Car");
                 });
 #pragma warning restore 612, 618

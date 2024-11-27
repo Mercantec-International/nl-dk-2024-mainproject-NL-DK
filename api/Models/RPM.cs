@@ -10,5 +10,6 @@
     public class RPMDTO
     {
         public int Speed { get; set; }
+        public string CarId { get; set; }
     }
 }

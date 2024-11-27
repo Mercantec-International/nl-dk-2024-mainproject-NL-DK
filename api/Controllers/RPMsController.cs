@@ -80,8 +80,9 @@
 
         // POST: api/RPMs
         [HttpPost]
-        public async Task<ActionResult<RPM>> PostRPM(RPM rPM, string token)
+        public async Task<ActionResult<RPM>> PostRPM(RPMDTO dto, string token)
         {
+            RPM rPM = MapDTOToRPM(dto);
             if (await _tokenHelper.ValidToken(token) != "Valid token")
             {
                 return BadRequest("Invalid or expired refresh token");
@@ -131,6 +132,17 @@
         private bool RPMExists(string id)
         {
             return _context.RPMs.Any(e => e.Id == id);
+        }
+        public RPM MapDTOToRPM(RPMDTO dto)
+        {
+            return new RPM
+            {
+                Id = Guid.NewGuid().ToString("N"),
+                CreatedAt = DateTime.UtcNow.AddHours(2),
+                UpdatedAt = DateTime.UtcNow.AddHours(2),
+                Speed = dto.Speed,
+                CarId = dto.CarId,
+            };
         }
     }
 }
