@@ -41,7 +41,7 @@ public class EmailService
             try
             {
                 string confirmationToken = Guid.NewGuid().ToString();
-                var confirmationUrl = $"https://localhost:7183/api/Users/confirm-email?token={confirmationToken}&email={email}";
+                var confirmationUrl = $"https://hyberdrivelabs.onrender.com/api/Users/confirm-email?token={confirmationToken}&email={email}";
                 var emailBody = await GetEmailTemplate(confirmationUrl);
 
             var smtpClient = new SmtpClient
