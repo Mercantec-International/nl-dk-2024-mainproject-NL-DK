@@ -133,7 +133,7 @@
         {
             return _context.RPMs.Any(e => e.Id == id);
         }
-        public RPM MapDTOToRPM(RPMDTO dto)
+        private RPM MapDTOToRPM(RPMDTO dto)
         {
             return new RPM
             {

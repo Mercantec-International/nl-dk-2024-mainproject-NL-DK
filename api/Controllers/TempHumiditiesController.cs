@@ -136,7 +136,7 @@ namespace api.Controllers
         {
             return _context.TempHumidityObjects.Any(e => e.Id == id);
         }
-        public TempHumidity MapDTOToTempHumid(TempHumidityDTO dto)
+        private TempHumidity MapDTOToTempHumid(TempHumidityDTO dto)
         {
             return new TempHumidity
             {

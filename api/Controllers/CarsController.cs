@@ -133,7 +133,7 @@
         {
             return _context.Cars.Any(e => e.Id == id);
         }
-        public Car MapDTOToCar(CarDTO dto)
+        private Car MapDTOToCar(CarDTO dto)
         {
             return new Car
             {
