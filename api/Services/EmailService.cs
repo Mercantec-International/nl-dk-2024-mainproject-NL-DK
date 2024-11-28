@@ -41,7 +41,7 @@ public class EmailService
             try
             {
                 string confirmationToken = Guid.NewGuid().ToString();
-                var confirmationUrl = $"https://localhost:7183/api/Users/confirm-email?token={confirmationToken}&email={email.Replace("@", "%40")}";
+                var confirmationUrl = $"https://localhost:7183/api/Users/confirm-email?token={confirmationToken}&email={email}";
                 var emailBody = await GetEmailTemplate(confirmationUrl);
 
             var smtpClient = new SmtpClient
@@ -51,13 +51,13 @@ public class EmailService
                 UseDefaultCredentials = false,
                 EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
-                Credentials = new NetworkCredential(_configuration["EmailService:Email"], _configuration["EmailService:Password"])
+                Credentials = new NetworkCredential(_configuration["EmailService:Email"] ?? Environment.GetEnvironmentVariable("Email"), _configuration["EmailService:Password"] ?? Environment.GetEnvironmentVariable("Password"))
             };
 
             var mailMessage = new MailMessage
             {
-                From = new MailAddress("mathiasgsteenberg7@gmail.com"),
-                Subject = "FAT NOGET",
+                From = new MailAddress(_configuration["EmailService:Email"] ?? Environment.GetEnvironmentVariable("Email")),
+                Subject = "HyperDrive Labs - Confirm your email address",
                 Body = emailBody,
                 IsBodyHtml = true
             };

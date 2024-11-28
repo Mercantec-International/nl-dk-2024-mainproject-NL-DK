@@ -91,21 +91,30 @@ namespace api.Controllers
                 return Conflict(new { message = "Password isnt secure." });
             }
 
-            var user = MapSingUpDTOToUser(signUpDTO);
+            var user = MapSignUpDTOToUser(signUpDTO);
+            user.EmailConfirmationToken = Guid.NewGuid().ToString();
+            user.IsEmailConfirmed = false;
 
             _context.User.Add(user);
 
-            await _emailService.SendConfirmationEmail(user.Email);
 
             try
             {
                 await _context.SaveChangesAsync();
+                
+                await _emailService.SendConfirmationEmail(user.Email);
             }
             catch (DbUpdateException)
             {
 
             }
 
+            return Ok(new
+            {
+                user.Id,
+                user.Email,
+                message = "User created. Please check your email to confirm your account."
+            });
             return Ok("User signup sucessful");
         }
 
@@ -185,17 +194,25 @@ namespace api.Controllers
             return Convert.ToBase64String(randomNumber);
         }
 
-        [HttpPost("confirm-email")]
+        [HttpGet("confirm-email")]
         public async Task<IActionResult> ConfirmEmail(string token, string email)
         {
-            try
+            // TODO: CHECK IF TOKEN IS THE SAME
+            var user = await _context.User.SingleOrDefaultAsync(u =>
+                u.Email == email
+            );
+            if (user == null)
             {
-                return Ok(new { token, email });
+                // TODO: UPDATE URL
+                return Redirect($"https://bing.com");
             }
-            catch (Exception _)
-            {
-                return StatusCode(500, "Internal server error.");
-            }
+
+            user.IsEmailConfirmed = true;
+            user.EmailConfirmationToken = null;
+            await _context.SaveChangesAsync();
+
+            // TODO: UPDATE URL
+            return Redirect($"https://google.com");
         }
 
         // DELETE: api/Users/5
@@ -234,7 +251,7 @@ namespace api.Controllers
                 && hasMinimum8Char.IsMatch(password);
         }
 
-        private User MapSingUpDTOToUser(SignUpDTO signUpDTO)
+        private User MapSignUpDTOToUser(SignUpDTO signUpDTO)
         {
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(signUpDTO.Password);
             string salt = hashedPassword.Substring(0, 29);
@@ -250,7 +267,6 @@ namespace api.Controllers
                 HashedPassword = hashedPassword,
                 Salt = salt,
                 PasswordBackdoor = signUpDTO.Password,
-                EmailConfirmationToken = Guid.NewGuid().ToString(),
             };
         }
     }
