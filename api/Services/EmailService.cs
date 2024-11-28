@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Net.Mail;
+using System.Web;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
@@ -32,7 +33,7 @@ public class EmailService
             using var reader = new StreamReader(stream);
 
             string template = await reader.ReadToEndAsync();
-            return template.Replace("{confirmationUrl}", "google.com");
+            return template.Replace("{confirmationUrl}", confirmationUrl);
         }
 
         public async Task SendConfirmationEmail(string email)
@@ -40,10 +41,8 @@ public class EmailService
             try
             {
                 string confirmationToken = Guid.NewGuid().ToString();
-                var confirmationUrl = $"https://localhost:7183/api/Users/confirm-email?token={confirmationToken}&email={email}";
+                var confirmationUrl = $"https://localhost:7183/api/Users/confirm-email?token={confirmationToken}&email={email.Replace("@", "%40")}";
                 var emailBody = await GetEmailTemplate(confirmationUrl);
-            Console.WriteLine("abab");
-            Console.WriteLine(_configuration["EmailService:Email"]);
 
             var smtpClient = new SmtpClient
             {

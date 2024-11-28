@@ -16,12 +16,12 @@ namespace api.Controllers
 
         // GET: api/TempHumidities
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TempHumidity>>> GetTempHumidityObjects(string token)
+        public async Task<ActionResult<IEnumerable<TempHumidity>>> GetTempHumidityObjects(/*string token*/)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            /*if (await _tokenHelper.ValidToken(token) != "Valid token")
             {
                 return BadRequest("Invalid or expired refresh token");
-            }
+            }*/
 
             return await _context.TempHumidityObjects.ToListAsync();
         }

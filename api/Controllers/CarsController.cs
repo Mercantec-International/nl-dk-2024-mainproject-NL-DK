@@ -14,12 +14,12 @@
 
         // GET: api/Cars
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Car>>> GetCars(string token)
+        public async Task<ActionResult<IEnumerable<Car>>> GetCars(/*string token*/)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            /*if (await _tokenHelper.ValidToken(token) != "Valid token")
             {
                 return BadRequest("Invalid or expired refresh token");
-            }
+            }*/
 
             return await _context.Cars.ToListAsync();
         }

@@ -14,12 +14,12 @@
 
         // GET: api/RPMs
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RPM>>> GetRPMs(string token)
+        public async Task<ActionResult<IEnumerable<RPM>>> GetRPMs(/*string token*/)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            /*if (await _tokenHelper.ValidToken(token) != "Valid token")
             {
                 return BadRequest("Invalid or expired refresh token");
-            }
+            }*/
 
             return await _context.RPMs.ToListAsync();
         }

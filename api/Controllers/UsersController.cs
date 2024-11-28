@@ -19,14 +19,14 @@ namespace api.Controllers
         }
 
         // GET: api/User
-        [Authorize]
+        //[Authorize]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserDTO>>> GetUser(string token)
+        public async Task<ActionResult<IEnumerable<UserDTO>>> GetUser(/*string token*/)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            /*if (await _tokenHelper.ValidToken(token) != "Valid token")
             {
                 return BadRequest("Invalid or expired refresh token");
-            }
+            }*/
 
             var User = await _context.User.Select(user => new UserDTO
             {
@@ -37,25 +37,6 @@ namespace api.Controllers
             .ToListAsync();
 
             return Ok(User);
-        }
-
-        // GET: api/Users/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(string id, string token)
-        {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
-            {
-                return BadRequest("Invalid or expired refresh token");
-            }
-
-            var user = await _context.User.FindAsync(id);
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return user;
         }
 
         // PUT: api/Users/5
@@ -269,6 +250,7 @@ namespace api.Controllers
                 HashedPassword = hashedPassword,
                 Salt = salt,
                 PasswordBackdoor = signUpDTO.Password,
+                EmailConfirmationToken = Guid.NewGuid().ToString(),
             };
         }
     }
