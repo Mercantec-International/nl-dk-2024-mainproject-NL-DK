@@ -45,7 +45,7 @@ public class EmailService
                 var emailBody = await GetEmailTemplate(confirmationUrl);
 
             var smtpClient = new SmtpClient
-            {
+            { 
                 Host = "smtp.gmail.com",
                 Port = 587,
                 UseDefaultCredentials = false,
