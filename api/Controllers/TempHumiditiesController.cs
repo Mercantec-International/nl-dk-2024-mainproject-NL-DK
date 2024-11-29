@@ -16,26 +16,26 @@ namespace api.Controllers
 
         // GET: api/TempHumidities
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TempHumidity>>> GetTempHumidityObjects(string token)
+        public async Task<ActionResult<IEnumerable<TempHumidity>>> GetTempHumidityObjects(/*string token*/)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            /*if (await _tokenHelper.ValidToken(token) != "Valid token")
             {
                 return BadRequest("Invalid or expired refresh token");
-            }
+            }*/
 
             return await _context.TempHumidityObjects.ToListAsync();
         }
 
         // GET: api/TempHumidities/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<TempHumidity>> GetTempHumidity(string id, string token)
+        [HttpGet("from-car")]
+        public async Task<ActionResult<TempHumidity>> GetTempHumidityFromCar(string carId/*, string token*/)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            /*if (await _tokenHelper.ValidToken(token) != "Valid token")
             {
                 return BadRequest("Invalid or expired refresh token");
-            }
+            }*/
 
-            var tempHumidity = await _context.TempHumidityObjects.FindAsync(id);
+            var tempHumidity = _context.TempHumidityObjects.Where(item => item.CarId == carId).First();
 
             if (tempHumidity == null)
             {
@@ -136,7 +136,7 @@ namespace api.Controllers
         {
             return _context.TempHumidityObjects.Any(e => e.Id == id);
         }
-        public TempHumidity MapDTOToTempHumid(TempHumidityDTO dto)
+        private TempHumidity MapDTOToTempHumid(TempHumidityDTO dto)
         {
             return new TempHumidity
             {

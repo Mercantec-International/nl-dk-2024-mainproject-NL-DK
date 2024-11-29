@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Net.Mail;
+using System.Web;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
@@ -32,7 +33,7 @@ public class EmailService
             using var reader = new StreamReader(stream);
 
             string template = await reader.ReadToEndAsync();
-            return template.Replace("{confirmationUrl}", "google.com");
+            return template.Replace("{confirmationUrl}", confirmationUrl);
         }
 
         public async Task SendConfirmationEmail(string email)
@@ -40,25 +41,23 @@ public class EmailService
             try
             {
                 string confirmationToken = Guid.NewGuid().ToString();
-                var confirmationUrl = $"https://localhost:7183/api/Users/confirm-email?token={confirmationToken}&email={email}";
+                var confirmationUrl = $"https://hyberdrivelabs.onrender.com/api/Users/confirm-email?token={confirmationToken}&email={email}";
                 var emailBody = await GetEmailTemplate(confirmationUrl);
-            Console.WriteLine("abab");
-            Console.WriteLine(_configuration["EmailService:Email"]);
 
             var smtpClient = new SmtpClient
-            {
+            { 
                 Host = "smtp.gmail.com",
                 Port = 587,
                 UseDefaultCredentials = false,
                 EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
-                Credentials = new NetworkCredential(_configuration["EmailService:Email"], _configuration["EmailService:Password"])
+                Credentials = new NetworkCredential(_configuration["EmailService:Email"] ?? Environment.GetEnvironmentVariable("Email"), _configuration["EmailService:Password"] ?? Environment.GetEnvironmentVariable("Password"))
             };
 
             var mailMessage = new MailMessage
             {
-                From = new MailAddress("mathiasgsteenberg7@gmail.com"),
-                Subject = "FAT NOGET",
+                From = new MailAddress(_configuration["EmailService:Email"] ?? Environment.GetEnvironmentVariable("Email")),
+                Subject = "HyperDrive Labs - Confirm your email address",
                 Body = emailBody,
                 IsBodyHtml = true
             };

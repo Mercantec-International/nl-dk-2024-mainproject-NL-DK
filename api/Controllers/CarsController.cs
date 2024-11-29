@@ -1,4 +1,6 @@
-﻿namespace api.Controllers
+﻿using api.Models;
+
+namespace api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -14,26 +16,26 @@
 
         // GET: api/Cars
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Car>>> GetCars(string token)
+        public async Task<ActionResult<IEnumerable<Car>>> GetCars(/*string token*/)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            /*if (await _tokenHelper.ValidToken(token) != "Valid token")
             {
                 return BadRequest("Invalid or expired refresh token");
-            }
+            }*/
 
             return await _context.Cars.ToListAsync();
         }
 
         // GET: api/Cars/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Car>> GetCar(string id, string token)
+        [HttpGet("from-user")]
+        public async Task<ActionResult<Car>> GetCar(string userId/*, string token*/)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            /*if (await _tokenHelper.ValidToken(token) != "Valid token")
             {
                 return BadRequest("Invalid or expired refresh token");
-            }
+            }*/
 
-            var car = await _context.Cars.FindAsync(id);
+            var car = _context.Cars.Where(item => item.UserId == userId).First();
 
             if (car == null)
             {
@@ -133,7 +135,7 @@
         {
             return _context.Cars.Any(e => e.Id == id);
         }
-        public Car MapDTOToCar(CarDTO dto)
+        private Car MapDTOToCar(CarDTO dto)
         {
             return new Car
             {

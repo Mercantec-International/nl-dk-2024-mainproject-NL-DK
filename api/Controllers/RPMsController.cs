@@ -14,26 +14,26 @@
 
         // GET: api/RPMs
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RPM>>> GetRPMs(string token)
+        public async Task<ActionResult<IEnumerable<RPM>>> GetRPMs(/*string token*/)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            /*if (await _tokenHelper.ValidToken(token) != "Valid token")
             {
                 return BadRequest("Invalid or expired refresh token");
-            }
+            }*/
 
             return await _context.RPMs.ToListAsync();
         }
 
         // GET: api/RPMs/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<RPM>> GetRPM(string id, string token)
+        [HttpGet("from-car")]
+        public async Task<ActionResult<RPM>> GetRPM(string carId/*, string token*/)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            /*if (await _tokenHelper.ValidToken(token) != "Valid token")
             {
                 return BadRequest("Invalid or expired refresh token");
-            }
+            }*/
 
-            var rPM = await _context.RPMs.FindAsync(id);
+            var rPM = _context.RPMs.Where(item => item.CarId == carId).First();
 
             if (rPM == null)
             {
@@ -133,7 +133,7 @@
         {
             return _context.RPMs.Any(e => e.Id == id);
         }
-        public RPM MapDTOToRPM(RPMDTO dto)
+        private RPM MapDTOToRPM(RPMDTO dto)
         {
             return new RPM
             {

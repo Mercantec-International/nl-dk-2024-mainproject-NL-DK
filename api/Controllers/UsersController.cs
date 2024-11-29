@@ -19,14 +19,14 @@ namespace api.Controllers
         }
 
         // GET: api/User
-        [Authorize]
+        //[Authorize]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserDTO>>> GetUser(string token)
+        public async Task<ActionResult<IEnumerable<UserDTO>>> GetUser(/*string token*/)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
+            /*if (await _tokenHelper.ValidToken(token) != "Valid token")
             {
                 return BadRequest("Invalid or expired refresh token");
-            }
+            }*/
 
             var User = await _context.User.Select(user => new UserDTO
             {
@@ -37,25 +37,6 @@ namespace api.Controllers
             .ToListAsync();
 
             return Ok(User);
-        }
-
-        // GET: api/Users/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(string id, string token)
-        {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
-            {
-                return BadRequest("Invalid or expired refresh token");
-            }
-
-            var user = await _context.User.FindAsync(id);
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return user;
         }
 
         // PUT: api/Users/5
@@ -110,21 +91,30 @@ namespace api.Controllers
                 return Conflict(new { message = "Password isnt secure." });
             }
 
-            var user = MapSingUpDTOToUser(signUpDTO);
+            var user = MapSignUpDTOToUser(signUpDTO);
+            user.EmailConfirmationToken = Guid.NewGuid().ToString();
+            user.IsEmailConfirmed = false;
 
             _context.User.Add(user);
 
-            await _emailService.SendConfirmationEmail(user.Email);
 
             try
             {
                 await _context.SaveChangesAsync();
+                
+                await _emailService.SendConfirmationEmail(user.Email);
             }
             catch (DbUpdateException)
             {
 
             }
 
+            return Ok(new
+            {
+                user.Id,
+                user.Email,
+                message = "User created. Please check your email to confirm your account."
+            });
             return Ok("User signup sucessful");
         }
 
@@ -191,17 +181,25 @@ namespace api.Controllers
             return "";
         }
 
-        [HttpPost("confirm-email")]
+        [HttpGet("confirm-email")]
         public async Task<IActionResult> ConfirmEmail(string token, string email)
         {
-            try
+            // TODO: CHECK IF TOKEN IS THE SAME
+            var user = await _context.User.SingleOrDefaultAsync(u =>
+                u.Email == email
+            );
+            if (user == null)
             {
-                return Ok(new { token, email });
+                // TODO: UPDATE URL
+                return Redirect($"https://bing.com");
             }
-            catch (Exception _)
-            {
-                return StatusCode(500, "Internal server error.");
-            }
+
+            user.IsEmailConfirmed = true;
+            user.EmailConfirmationToken = null;
+            await _context.SaveChangesAsync();
+
+            // TODO: UPDATE URL
+            return Redirect($"https://google.com");
         }
 
         // DELETE: api/Users/5
@@ -240,7 +238,7 @@ namespace api.Controllers
                 && hasMinimum8Char.IsMatch(password);
         }
 
-        private User MapSingUpDTOToUser(SignUpDTO signUpDTO)
+        private User MapSignUpDTOToUser(SignUpDTO signUpDTO)
         {
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(signUpDTO.Password);
             string salt = hashedPassword.Substring(0, 29);
