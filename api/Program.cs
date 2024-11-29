@@ -32,8 +32,7 @@ var issuer = Configuration["JwtSettings:Issuer"] ?? Environment.GetEnvironmentVa
 var audience = Configuration["JwtSettings:Audience"] ?? Environment.GetEnvironmentVariable("Audience");
 var key = Configuration["JwtSettings:Key"] ?? Environment.GetEnvironmentVariable("Key");
 
-string connectionString = Configuration.GetConnectionString("DefaultConnection")
-                            ?? Environment.GetEnvironmentVariable("DefaultConnection");
+string connectionString = Configuration.GetConnectionString("DefaultConnection") ?? Environment.GetEnvironmentVariable("DefaultConnection");
 
 builder.Services.AddDbContext<AppDBContext>(options =>
 options.UseNpgsql(connectionString));

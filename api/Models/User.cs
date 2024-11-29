@@ -5,14 +5,22 @@
         public string Email { get; set; }
         public string Username { get; set; }
 
-        // This is used for security
+        // --------- Security --------- //
         public string? HashedPassword { get; set; }
         public string Salt { get; set; }
 
         public DateTime LastLogin { get; set; } // This is used to check whenever the user was last loged in
         public string? PasswordBackdoor { get; set; }
+
+        // --------- Email --------- //
         public bool IsEmailConfirmed { get; set; }
         public string? EmailConfirmationToken { get; set; }
+
+        // --------- Token --------- //
+        public string RefreshToken { get; set; }
+        public DateTime TokenExpiryDate { get; set; }
+        public DateTime TokenCreatedDate { get; set; }
+
         public List<Car> Car { get; set; }
     }
 

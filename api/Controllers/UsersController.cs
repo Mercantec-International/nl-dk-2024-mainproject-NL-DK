@@ -142,15 +142,6 @@ namespace api.Controllers
 
                 var token = GenerateJWT(user);
 
-                var refreshToken = new JWT
-                {
-                    RefreshToken = token,
-                    UserId = user.Id,
-                    ExpiryDate = DateTime.UtcNow.AddDays(1), // Refresh token valid for 1 day
-                    CreatedDate = DateTime.UtcNow
-                };
-
-                _context.Token.Add(refreshToken);
                 await _context.SaveChangesAsync();
 
                 return Ok(new { token, user.Username, user.Id });
@@ -196,12 +187,8 @@ namespace api.Controllers
 
         private string GenerateRefreshToken()
         {
-            var randomNumber = new byte[32];
-            using (var rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(randomNumber);
-            }
-            return Convert.ToBase64String(randomNumber);
+
+            return "";
         }
 
         [HttpPost("confirm-email")]
@@ -270,6 +257,16 @@ namespace api.Controllers
                 Salt = salt,
                 PasswordBackdoor = signUpDTO.Password,
             };
+        }
+
+        public bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            // Brug et regex-mønster til at validere e-mail-formatet
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            return Regex.IsMatch(email, pattern);
         }
     }
 }
