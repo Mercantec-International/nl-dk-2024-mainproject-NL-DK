@@ -39,6 +39,31 @@ namespace api.Controllers
             return Ok(User);
         }
 
+        // GET: api/Users/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UserDTO>> GetUser(string id/*, string token*/)
+        {
+            /*if (await _tokenHelper.ValidToken(token) != "Valid token")
+            {
+                return BadRequest("Invalid or expired refresh token");
+            }*/
+
+            var Users = await _context.User.Select(user => new UserDTO
+            {
+                Id = user.Id,
+                Email = user.Email,
+                Username = user.Username
+            }).ToListAsync();
+
+            var user = Users.Where(item => item.Id == id).First();
+            
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return user;
+        }
+
         // PUT: api/Users/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(string id, User user, string token)
@@ -119,7 +144,6 @@ namespace api.Controllers
                 user.Email,
                 message = "User created. Please check your email to confirm your account."
             });
-            return Ok("User signup sucessful");
         }
 
         // POST: api/User
