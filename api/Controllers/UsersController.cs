@@ -82,13 +82,17 @@ namespace api.Controllers
             {
                 return Conflict(new { message = "Username is already in use." });
             }
-            if (await _context.User.AnyAsync(u => u.Email == signUpDTO.Email))
-            {
-                return Conflict(new { message = "Email is already in use." });
-            }
             if (!IsPasswordSecure(signUpDTO.Password))
             {
                 return Conflict(new { message = "Password isnt secure." });
+            }
+            if (IsValidEmail(signUpDTO.Email))
+            {
+                return Conflict(new { message = "Email isnt valid." });
+            }
+            else if (await _context.User.AnyAsync(u => u.Email == signUpDTO.Email))
+            {
+                return Conflict(new { message = "Email is already in use." });
             }
 
             var user = MapSignUpDTOToUser(signUpDTO);
@@ -257,7 +261,7 @@ namespace api.Controllers
             };
         }
 
-        public bool IsValidEmail(string email)
+        private bool IsValidEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
                 return false;
