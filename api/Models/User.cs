@@ -17,9 +17,9 @@
         public string? EmailConfirmationToken { get; set; }
 
         // --------- Token --------- //
-        public string RefreshToken { get; set; }
-        public DateTime TokenExpiryDate { get; set; }
-        public DateTime TokenCreatedDate { get; set; }
+        /*public string? RefreshToken { get; set; }
+        public DateTime? TokenExpiryDate { get; set; }
+        public DateTime? TokenCreatedDate { get; set; }*/
 
         public List<Car> Car { get; set; }
     }
