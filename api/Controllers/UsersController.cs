@@ -111,11 +111,11 @@ namespace api.Controllers
             {
                 return Conflict(new { message = "Password isnt secure." });
             }
-            if (IsValidEmail(signUpDTO.Email))
+            /*if (IsValidEmail(signUpDTO.Email))
             {
                 return Conflict(new { message = "Email isnt valid." });
             }
-            else if (await _context.User.AnyAsync(u => u.Email == signUpDTO.Email))
+            else */if (await _context.User.AnyAsync(u => u.Email == signUpDTO.Email))
             {
                 return Conflict(new { message = "Email is already in use." });
             }
@@ -291,7 +291,7 @@ namespace api.Controllers
                 return false;
 
             // Brug et regex-mønster til at validere e-mail-formatet
-            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            string pattern = @"^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$";
             return Regex.IsMatch(email, pattern);
         }
     }
