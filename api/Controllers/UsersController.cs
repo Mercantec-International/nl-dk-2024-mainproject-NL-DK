@@ -1,5 +1,6 @@
 ﻿using api.Models;
 using NuGet.Common;
+using System.Configuration;
 
 namespace api.Controllers
 {
@@ -9,12 +10,13 @@ namespace api.Controllers
     {
         private readonly AppDBContext _context;
         private readonly TokenHelper _tokenHelper;
-        private readonly IConfiguration _configuration;
+        private readonly IConfiguration Configuration;
         private readonly EmailService _emailService;
 
-        public UsersController(AppDBContext context, EmailService emailService)
+        public UsersController(AppDBContext context, EmailService emailService, IConfiguration configuration)
         {
             _context = context;
+            Configuration = configuration;
             _emailService = emailService;
         }
 
@@ -152,7 +154,13 @@ namespace api.Controllers
         {
             try
             {
-                var user = await _context.User.SingleOrDefaultAsync(u => u.Email == loginDTO.Email);
+                var user = await _context.User.Select(user => new UserDTO
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    Username = user.Username,
+                    HashedPassword = user.HashedPassword
+                }).SingleOrDefaultAsync(u => u.Email == loginDTO.Email);
                 if (user == null || !BCrypt.Net.BCrypt.Verify(loginDTO.Password, user.HashedPassword))
                 {
                     return Unauthorized(new { message = "Invalid email or password." });
@@ -171,11 +179,12 @@ namespace api.Controllers
             }
         }
 
-        private string GenerateJWT(User user)
+        private string GenerateJWT(UserDTO user)
         {
-            var keyString = _configuration["JwtSettings:Key"] ?? Environment.GetEnvironmentVariable("Key");
-            var issuer = _configuration["JwtSettings:Issuer"] ?? Environment.GetEnvironmentVariable("Issuer");
-            var audience = _configuration["JwtSettings:Audience"] ?? Environment.GetEnvironmentVariable("Audience");
+            Console.WriteLine(Configuration["JwtSettings:Key"] ?? "abab");
+            var keyString = Configuration["JwtSettings:Key"] ?? Environment.GetEnvironmentVariable("Key");
+            var issuer = Configuration["JwtSettings:Issuer"] ?? Environment.GetEnvironmentVariable("Issuer");
+            var audience = Configuration["JwtSettings:Audience"] ?? Environment.GetEnvironmentVariable("Audience");
 
             // Log the values
             Console.WriteLine($"Key: {keyString}");
@@ -291,7 +300,7 @@ namespace api.Controllers
                 return false;
 
             // Brug et regex-mønster til at validere e-mail-formatet
-            string pattern = @"^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$";
+            string pattern = @"(?>(?:[0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+)[a-zA-Z]{2,9}";
             return Regex.IsMatch(email, pattern);
         }
     }
