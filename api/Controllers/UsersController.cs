@@ -181,7 +181,6 @@ namespace api.Controllers
 
         private string GenerateJWT(UserDTO user)
         {
-            Console.WriteLine(Configuration["JwtSettings:Key"] ?? "abab");
             var keyString = Configuration["JwtSettings:Key"] ?? Environment.GetEnvironmentVariable("Key");
             var issuer = Configuration["JwtSettings:Issuer"] ?? Environment.GetEnvironmentVariable("Issuer");
             var audience = Configuration["JwtSettings:Audience"] ?? Environment.GetEnvironmentVariable("Audience");
