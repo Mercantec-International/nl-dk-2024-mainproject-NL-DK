@@ -226,16 +226,14 @@ namespace api.Controllers
             );
             if (user == null)
             {
-                // TODO: UPDATE URL
-                return Redirect($"https://bing.com");
+                return Redirect($"https://hyper.mercantec.tech/failure.html");
             }
 
             user.IsEmailConfirmed = true;
             user.EmailConfirmationToken = null;
             await _context.SaveChangesAsync();
 
-            // TODO: UPDATE URL
-            return Redirect($"https://google.com");
+            return Redirect($"https://hyper.mercantec.tech/succes.html");
         }
 
         // DELETE: api/Users/5
