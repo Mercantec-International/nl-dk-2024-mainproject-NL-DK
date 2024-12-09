@@ -7,8 +7,8 @@ import '../../widgets/custom_appbar copy.dart';
 import 'select_car_bloc.dart';
 
 class SelectPage extends StatefulWidget {
-  SelectPage({super.key, required this.cards});
-  dynamic cards;
+  SelectPage({super.key, required this.cars});
+  dynamic cars;
 
   @override
   _SelectPageState createState() => _SelectPageState();
@@ -46,19 +46,18 @@ class _SelectPageState extends State<SelectPage> {
                 height: MediaQuery.of(context).size.height,
                 decoration: const BoxDecoration(border: Border(bottom: BorderSide(width: 0.5))),
                 child: ListView.builder(
-                  itemCount: widget.cards.length,
+                  itemCount: widget.cars.length,
                   // Add all items that doesnt contain null
                   itemBuilder: (context, position) =>
-                    widget.cards[position].Company != null && 
-                    widget.cards[position].LicensePlate != null && 
-                    widget.cards[position].Id != null ? DecoratedBox(
+                    widget.cars[position].Company != null ? DecoratedBox(
                       decoration: BoxDecoration(border: Border.all(width: 0.5)),
-                      child: CustomListItem(
+                      // TODO: UPDATE OR REMOVE
+                      child: const CustomListItem(
                         /*updateFunc: () => context.read<SelectBloc>().add(const UpdateSelectPage()),
-                        company: widget.cards[position].Company!,
-                        plate: widget.cards[position].LicensePlate!,
-                        status: widget.cards[position].CustomerStatus,
-                        id: widget.cards[position].Id!,
+                        company: widget.cars[position].Company!,
+                        plate: widget.cars[position].LicensePlate!,
+                        status: widget.cars[position].CustomerStatus,
+                        id: widget.cars[position].Id!,
                         index: position,*/
                       ),
                     ) : null,
