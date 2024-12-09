@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:rc_controller/ui/settings/settings_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+final globalNavigatorKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -10,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: globalNavigatorKey,
       title: 'RCXD Controller',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
