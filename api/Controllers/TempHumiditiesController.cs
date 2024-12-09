@@ -49,10 +49,10 @@ namespace api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTempHumidity(string id, TempHumidity tempHumidity, string token)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
-            {
-                return BadRequest("Invalid or expired refresh token");
-            }
+            //if (await _tokenHelper.ValidToken(token) != "Valid token")
+            //{
+            //    return BadRequest("Invalid or expired refresh token");
+            //}
 
             if (id != tempHumidity.Id)
             {
@@ -84,14 +84,16 @@ namespace api.Controllers
         [HttpPost]
         public async Task<ActionResult<TempHumidity>> PostTempHumidity(TempHumidityDTO dto, string token)
         {
+
+            //if (await _tokenHelper.ValidToken(token) != "Valid token")
+            //{
+            //    return BadRequest("Invalid or expired refresh token");
+            //}
+
             TempHumidity tempHumidity = MapDTOToTempHumid(dto);
-
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
-            {
-                return BadRequest("Invalid or expired refresh token");
-            }
-
+            
             _context.TempHumidityObjects.Add(tempHumidity);
+            
             try
             {
                 await _context.SaveChangesAsync();
@@ -115,10 +117,10 @@ namespace api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTempHumidity(string id, string token)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
-            {
-                return BadRequest("Invalid or expired refresh token");
-            }
+            //if (await _tokenHelper.ValidToken(token) != "Valid token")
+            //{
+            //    return BadRequest("Invalid or expired refresh token");
+            //}
 
             var tempHumidity = await _context.TempHumidityObjects.FindAsync(id);
             if (tempHumidity == null)

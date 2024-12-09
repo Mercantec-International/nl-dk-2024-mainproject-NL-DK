@@ -47,10 +47,10 @@
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRPM(string id, RPM rPM, string token)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
-            {
-                return BadRequest("Invalid or expired refresh token");
-            }
+            //if (await _tokenHelper.ValidToken(token) != "Valid token")
+            //{
+            //    return BadRequest("Invalid or expired refresh token");
+            //}
 
             if (id != rPM.Id)
             {
@@ -83,10 +83,10 @@
         public async Task<ActionResult<RPM>> PostRPM(RPMDTO dto, string token)
         {
             RPM rPM = MapDTOToRPM(dto);
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
-            {
-                return BadRequest("Invalid or expired refresh token");
-            }
+            //if (await _tokenHelper.ValidToken(token) != "Valid token")
+            //{
+            //    return BadRequest("Invalid or expired refresh token");
+            //}
 
             _context.RPMs.Add(rPM);
             try
@@ -112,10 +112,10 @@
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRPM(string id, string token)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
-            {
-                return BadRequest("Invalid or expired refresh token");
-            }
+            //if (await _tokenHelper.ValidToken(token) != "Valid token")
+            //{
+            //    return BadRequest("Invalid or expired refresh token");
+            //}
 
             var rPM = await _context.RPMs.FindAsync(id);
             if (rPM == null)

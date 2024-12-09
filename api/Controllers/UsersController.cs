@@ -128,7 +128,6 @@ namespace api.Controllers
 
             _context.User.Add(user);
 
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -225,6 +224,7 @@ namespace api.Controllers
             var user = await _context.User.SingleOrDefaultAsync(u =>
                 u.Email == email
             );
+            
             if (user == null)
             {
                 return Redirect($"https://hyper.mercantec.tech/failure.html");

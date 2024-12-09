@@ -1,7 +1,7 @@
-abstract class LoginEvents {
-  const LoginEvents();
+abstract class LoginEvent {
+  const LoginEvent();
 }
 
-class UpdateLoginPage extends LoginEvents {
+class UpdateLoginPage extends LoginEvent {
   const UpdateLoginPage();
 }
