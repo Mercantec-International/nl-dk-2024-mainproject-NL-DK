@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SelectPage(cars: [CarObject("1", "1", DateTime.now(), DateTime.now(), DateTime.now())])//MyHomePage(title: 'RCXD Controller Home Page'),
+      home: MyHomePage(title: 'RCXD Controller Home Page'),
     );
   }
 }

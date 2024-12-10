@@ -15,12 +15,12 @@ class ShowPageState extends LoginState {
   const ShowPageState();
 }
 
-class LoginBloc extends Bloc<LoginEvents, LoginState> {
+class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(const LoginState()) {
-    on<LoginEvents>(_onEvent);
+    on<LoginEvent>(_onEvent);
   }
 
-  void _onEvent(LoginEvents event, Emitter<LoginState> emit) {
+  void _onEvent(LoginEvent event, Emitter<LoginState> emit) {
     if (event is UpdateLoginPage) {
       emit(const UpdatePageState());
       emit(const ShowPageState());
