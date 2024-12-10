@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class CustomImageBtn extends StatelessWidget {
   const CustomImageBtn({super.key, required this.text, required this.onTap,
-    required this.image, required this.updateFunc, required this.gradient});
+    required this.icon, required this.updateFunc, required this.gradient});
   final String text;
   final void Function() onTap, updateFunc;
-  final Image image;
+  final IconData icon;
   final LinearGradient gradient;
 
   @override
@@ -29,7 +29,8 @@ class CustomImageBtn extends StatelessWidget {
       child: Row(
         children: [
           //Image
-          SizedBox(height: 45, child: image),
+          Icon(icon, size: 45,),
+          //SizedBox(height: 45, child: image),
           //Text
           const Spacer(),
           Center(child: Text(text, style: TextStyle(color: Colors.white, fontSize: 22))),

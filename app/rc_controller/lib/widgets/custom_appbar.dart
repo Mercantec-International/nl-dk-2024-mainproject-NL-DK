@@ -6,17 +6,12 @@ import 'package:rc_controller/ui/settings/settings_page.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key, 
     this.settings, //true
-    this.toggleAlarm, //true
-    this.setRecyclePoint, //true
-    this.checkRecyclePointStatus, //true
     this.customLeading, 
-    this.customBtn, 
     this.updateFunc, 
     this.additionalText,
   });
-  final bool? settings, toggleAlarm, setRecyclePoint, checkRecyclePointStatus;
+  final bool? settings;
   final String? additionalText;
-  final Widget? customBtn;
   final void Function()? updateFunc, customLeading;
 
   @override
@@ -49,17 +44,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text('HYPERDRIVE LABS', style: TextStyle(color: Colors.white)),
-          if (additionalText != null)
-            Text(
-              additionalText!,
-              style: TextStyle(fontSize: 14, color: Colors.grey[400]),
-            ),
+          Text(
+            additionalText ?? "Welcome user",
+            style: TextStyle(fontSize: 14, color: Colors.grey[400]),
+          ),
         ],
       ),
-      actions: [customBtn ??
+      actions: [
         PopupMenuButton<String>(
           color: Colors.grey[900],
-          icon: Image.asset('assets/icons/gbizz_app_ikon.png'),
+          icon: Image.asset('assets/icon.png'),
           onSelected: selected,
           itemBuilder: (BuildContext context) => [
             if (settings ?? true)

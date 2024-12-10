@@ -1,18 +1,22 @@
 // ignore_for_file: use_build_context_synchronously
 
 //import 'package:connectivity_plus/connectivity_plus.dart';
+import 'dart:convert';
+
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sitsmart_app/classes/api/checkResponse/check_login_response_response.dart';
-import 'package:sitsmart_app/classes/helper/api.dart';
-import 'package:sitsmart_app/colors.dart';
-import 'package:sitsmart_app/ui/listpage/listpage.dart';
+import 'package:rc_controller/classes/api/checkresponse/check_car_response%20copy.dart';
+import 'package:rc_controller/classes/api/checkresponse/check_car_response.dart';
+import 'package:rc_controller/classes/api/objects/car.dart';
+import 'package:rc_controller/classes/helper/api.dart';
+import 'package:rc_controller/colors.dart';
+import 'package:rc_controller/ui/login/login_bloc.dart';
+import 'package:rc_controller/ui/login/login_events.dart';
+import 'package:rc_controller/ui/selectcar/select_car_page.dart';
 import '/classes/helper/GeneralHelper.dart';
 import '/widgets/custom_image_btn.dart';
 import 'package:flutter/material.dart';
 import '/widgets/custom_appbar.dart';
-import 'loginpage_bloc.dart';
-import 'loginpage_events.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -41,10 +45,10 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) => Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: CustomAppBar(),
+        appBar: CustomAppBar(additionalText: "Version: ${General.version}"),
         body: BlocProvider(
-          create: (_) => HomepageBloc(),
-          child: BlocBuilder<HomepageBloc, HomepageState>(
+          create: (_) => LoginBloc(),
+          child: BlocBuilder<LoginBloc, LoginState>(
             builder: (context, state) => SingleChildScrollView(
               child: Container(
                 alignment: Alignment.center,
@@ -70,13 +74,13 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
                         controller: emailController,
                         onSubmitted: (value) {
                           context
-                              .read<HomepageBloc>()
-                              .add(const UpdateHomepage());
+                              .read<LoginBloc>()
+                              .add(const UpdateLoginPage());
                         },
                         onChanged: (value) async {
                           context
-                              .read<HomepageBloc>()
-                              .add(const UpdateHomepage());
+                              .read<LoginBloc>()
+                              .add(const UpdateLoginPage());
                         },
                       ),
                     ),
@@ -106,13 +110,13 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
                         controller: passwordController,
                         onSubmitted: (value) {
                           context
-                              .read<HomepageBloc>()
-                              .add(const UpdateHomepage());
+                              .read<LoginBloc>()
+                              .add(const UpdateLoginPage());
                         },
                         onChanged: (value) async {
                           context
-                              .read<HomepageBloc>()
-                              .add(const UpdateHomepage());
+                              .read<LoginBloc>()
+                              .add(const UpdateLoginPage());
                         },
                       ),
                     ),
@@ -134,21 +138,19 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
                         if (General.connectivity != ConnectivityResult.none) {
                           if (emailController.text.trim().isNotEmpty &&
                               passwordController.text.trim().isNotEmpty) {
-                            dynamic response;
                             String body =
                                 "{ \"email\": \"${emailController.text}\", \"password\": \"${passwordController.text}\" }";
 
                             // Create item to be sent in request
-                            response = CheckLoginResponse(
-                                await API().postRequest(body, '/Users/login'));
+                            CheckLoginResponse loginResponse = CheckLoginResponse(await API().postRequest(body, '/Users/login'));
+                            CheckCarResponse carResponse = CheckCarResponse(await API().getRequest('/Cars'));
 
-                            if (response.Result == 'OK') {
+                            if (carResponse.Cars.isNotEmpty) {
                               try {
                                 await Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            ListPage(cards: response.Cards)));
+                                        builder: (context) => SelectPage(cars: carResponse.Cars)));
 
                                 // No catch
                               } catch (_) {}

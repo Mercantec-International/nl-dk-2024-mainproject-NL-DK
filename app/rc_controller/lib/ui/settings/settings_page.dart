@@ -47,10 +47,6 @@ class _SettingsPageState extends State<SettingsPage> {
       resizeToAvoidBottomInset: false,
       appBar: CustomAppBar(
         settings: false,
-        toggleAlarm: false,
-        setRecyclePoint: false,
-        checkRecyclePointStatus: false,
-        customBtn: const Text(''),
         additionalText: "Version: ${General.version}",
         customLeading: willPop,
       ),
