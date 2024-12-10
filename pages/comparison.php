@@ -1,7 +1,7 @@
 <?php
-include('php/functions.php');
-
-headerHTML("Comparison");
+session_start();
+$page = 'Comparison';
+include_once('../includes/header.php');
 ?>
 <!-- Tables -->
 <div class="wrapper p-10 max-w-4xl bg-gray-900 text-gray-300 ml-0">
@@ -114,7 +114,6 @@ headerHTML("Comparison");
     </div>
 </div>
 
-
 <?php
-footerHTML();
+include_once('../includes/footer.php');
 ?>

@@ -11,8 +11,9 @@ body {
 
 /* Hero Section */
 .hero {
-    background-image: url('../media/images/rocket-background.jpg');
+    background-image: url('/media/images/rocket-background.jpg');
     height: 600px;
+    max-width: auto;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,7 +1,8 @@
 <?php
-include('php/functions.php');
+session_start();
+$page = 'Project';
+include_once('../includes/header.php');
 
-headerHTML("Project");
 ?>
 <div class="flex flex-wrap bg-purple-100 p-8">
     <div class="bg-cover bg-bottom border w-full md:w-1/3 h-64 md:h-auto relative" style="background-image:url('https://orbitaltoday.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2020/09/isar-spectrum-rocket.jpg.webp')">
@@ -223,5 +224,5 @@ headerHTML("Project");
     window.addEventListener('DOMContentLoaded', loadCheckboxState);
 </script>
 <?php
-footerHTML();
+include_once('../includes/footer.php');
 ?>

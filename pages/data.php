@@ -1,17 +1,20 @@
 <?php
-include('php/functions.php');
-$conn = db_connect();
-
-headerHTML("Launch Data");
+session_start();
+include('../includes/header.php');
+include_once('../database/db_conn.php');
+$page = 'Data';
 ?>
 
-<div class="container my-5">
-    <h2 class="text-center mb-4">View Launch Data</h2>
-    
+<!-- Tailwind CSS CDN -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<div class="container mx-auto my-5 p-4">
+    <h2 class="text-center text-2xl font-bold mb-4">View Launch Data</h2>
+
     <!-- Launch Selection -->
     <form id="launchForm" class="mb-4">
-        <label for="launchNumber" class="form-label">Select a Launch Number:</label>
-        <select id="launchNumber" name="launchNumber" class="form-select">
+        <label for="launchNumber" class="block text-lg font-medium mb-2">Select a Launch Number:</label>
+        <select id="launchNumber" name="launchNumber" class="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
             <option value="" disabled selected>Select a Launch</option>
             <?php
             $query = "SELECT launchNumber FROM launchmeasurements";
@@ -24,8 +27,8 @@ headerHTML("Launch Data");
     </form>
 
     <!-- Data and Graph Section -->
-    <div id="launchData" class="mt-5">
-        <p class="text-center text-muted">Select a launch to view data.</p>
+    <div id="launchData" class="mt-5 text-center text-gray-600">
+        <p>Select a launch to view data.</p>
     </div>
 </div>
 
@@ -101,5 +104,6 @@ headerHTML("Launch Data");
         }
     }
 </script>
-
-<?php footerHTML(); ?>
+<?php
+include_once('../includes/footer.php')
+?>

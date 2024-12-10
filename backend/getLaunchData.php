@@ -1,6 +1,5 @@
 <?php
-include('functions.php');
-$conn = db_connect();
+include ('database/db_conn.php');
 
 $launchNumber = intval($_GET['launchNumber']);
 $response = ['success' => false];
