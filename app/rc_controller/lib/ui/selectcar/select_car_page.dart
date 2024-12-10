@@ -15,7 +15,6 @@ class SelectPage extends StatefulWidget {
 }
 
 class _SelectPageState extends State<SelectPage> {
-
   @override
   // Select page with all given licensplates, used for both recentRegs and checkId
   Widget build(BuildContext context) => Scaffold(

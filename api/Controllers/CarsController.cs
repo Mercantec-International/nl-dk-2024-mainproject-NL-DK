@@ -49,10 +49,10 @@ namespace api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCar(string id, Car car, string token)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
-            {
-                return BadRequest("Invalid or expired refresh token");
-            }
+            //if (await _tokenHelper.ValidToken(token) != "Valid token")
+            //{
+            //    return BadRequest("Invalid or expired refresh token");
+            //}
 
             if (id != car.Id)
             {
@@ -84,11 +84,13 @@ namespace api.Controllers
         [HttpPost]
         public async Task<ActionResult<Car>> PostCar(CarDTO dto, string token)
         {
-            Car car = MapDTOToCar(dto);
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
-            {
-                return BadRequest("Invalid or expired refresh token");
-            }
+
+            //if (await _tokenHelper.ValidToken(token) != "Valid token")
+            //{
+            //    return BadRequest("Invalid or expired refresh token");
+            //}
+
+            var car = MapDTOToCar(dto);
 
             _context.Cars.Add(car);
             try
@@ -108,16 +110,17 @@ namespace api.Controllers
             }
 
             return CreatedAtAction("GetCar", new { id = car.Id }, car);
+
         }
 
         // DELETE: api/Cars/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCar(string id, string token)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
-            {
-                return BadRequest("Invalid or expired refresh token");
-            }
+            //if (await _tokenHelper.ValidToken(token) != "Valid token")
+            //{
+            //    return BadRequest("Invalid or expired refresh token");
+            //}
 
             var car = await _context.Cars.FindAsync(id);
             if (car == null)

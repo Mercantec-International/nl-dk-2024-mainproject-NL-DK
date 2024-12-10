@@ -70,10 +70,10 @@ namespace api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(string id, User user, string token)
         {
-            if (await _tokenHelper.ValidToken(token) != "Valid token")
-            {
-                return BadRequest("Invalid or expired refresh token");
-            }
+            //if (await _tokenHelper.ValidToken(token) != "Valid token")
+            //{
+            //    return BadRequest("Invalid or expired refresh token");
+            //}
 
             if (id != user.Id)
             {
@@ -116,8 +116,8 @@ namespace api.Controllers
             /*if (IsValidEmail(signUpDTO.Email))
             {
                 return Conflict(new { message = "Email isnt valid." });
-            }
-            else */if (await _context.User.AnyAsync(u => u.Email == signUpDTO.Email))
+            }*/
+            else if (await _context.User.AnyAsync(u => u.Email == signUpDTO.Email))
             {
                 return Conflict(new { message = "Email is already in use." });
             }
@@ -127,7 +127,6 @@ namespace api.Controllers
             user.IsEmailConfirmed = false;
 
             _context.User.Add(user);
-
 
             try
             {
@@ -161,6 +160,7 @@ namespace api.Controllers
                     Username = user.Username,
                     HashedPassword = user.HashedPassword
                 }).SingleOrDefaultAsync(u => u.Email == loginDTO.Email);
+
                 if (user == null || !BCrypt.Net.BCrypt.Verify(loginDTO.Password, user.HashedPassword))
                 {
                     return Unauthorized(new { message = "Invalid email or password." });
@@ -224,6 +224,7 @@ namespace api.Controllers
             var user = await _context.User.SingleOrDefaultAsync(u =>
                 u.Email == email
             );
+            
             if (user == null)
             {
                 return Redirect($"https://hyper.mercantec.tech/failure.html");
