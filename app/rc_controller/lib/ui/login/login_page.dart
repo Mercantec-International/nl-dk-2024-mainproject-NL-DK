@@ -192,12 +192,12 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
                             }
                           } else {
                             General.makeSnackBar(emailController.text.isEmpty
-                                ? "Ingen email"
-                                : "Intet password");
+                                ? "No email"
+                                : "No password");
                           }
                         } else {
                           // No connection
-                          General.makeSnackBar("Ingen forbindelse");
+                          General.makeSnackBar("No connection");
                         }
                       },
                     ),
