@@ -1,11 +1,8 @@
 // ignore_for_file: must_be_immutable
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:intl/intl.dart';
 import 'package:rc_controller/ui/controller/controller_page.dart';
-import '../classes/helper/SPHelper.dart';
 import '../classes/helper/GeneralHelper.dart';
 import 'package:flutter/material.dart';
-import '../classes/helper/api.dart';
 
 class CustomListItem extends StatelessWidget {
   CustomListItem(
@@ -14,7 +11,7 @@ class CustomListItem extends StatelessWidget {
       required this.lastEmergency,
       required this.createdAt,
       required this.updateFunc,
-      required this.index}) {}
+      required this.index});
   final String id;
   final DateTime lastEmergency, createdAt;
   final int index;
@@ -27,7 +24,6 @@ class CustomListItem extends StatelessWidget {
       children: [
         GestureDetector(
             onTap: () async {
-              // TODO: GO TO CONTROLLER
               await Navigator.push(context, MaterialPageRoute(builder: (context) => const ControllerPage()));
             },
             child: SizedBox(

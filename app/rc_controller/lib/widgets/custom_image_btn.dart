@@ -33,7 +33,7 @@ class CustomImageBtn extends StatelessWidget {
           //SizedBox(height: 45, child: image),
           //Text
           const Spacer(),
-          Center(child: Text(text, style: TextStyle(color: Colors.white, fontSize: 22))),
+          Center(child: Text(text, style: const TextStyle(color: Colors.white, fontSize: 22))),
           const Spacer(),
         ],
       ),

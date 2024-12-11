@@ -5,13 +5,11 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rc_controller/classes/api/checkresponse/check_car_response%20copy.dart';
 import 'package:rc_controller/classes/api/checkresponse/check_car_response.dart';
-import 'package:rc_controller/classes/api/objects/car.dart';
 import 'package:rc_controller/classes/helper/api.dart';
 import 'package:rc_controller/colors.dart';
 import 'package:rc_controller/ui/login/login_bloc.dart';
 import 'package:rc_controller/ui/login/login_events.dart';
 import 'package:rc_controller/ui/selectcar/select_car_page.dart';
-import 'package:rc_controller/widgets/custom_controller_btn.dart';
 import '/classes/helper/GeneralHelper.dart';
 import '/widgets/custom_image_btn.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +43,7 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: CustomAppBar(additionalText: "Version: ${General.version}"),
+      appBar: const CustomAppBar(),
       body: BlocProvider(
         create: (_) => LoginBloc(),
         child: BlocBuilder<LoginBloc, LoginState>(
@@ -109,7 +107,6 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
                     SizedBox(
                       width: General.isPhone ? 280 : 440,
                       child: TextField(
-                        autofillHints: [""],
                         obscureText: true,
                         textCapitalization: TextCapitalization.characters,
                         textAlign: TextAlign.center,

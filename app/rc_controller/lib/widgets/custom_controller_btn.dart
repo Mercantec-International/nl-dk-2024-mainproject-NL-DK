@@ -14,12 +14,6 @@ class CustomControllerBtn extends StatelessWidget {
     );
     return Column(
       children: [
-        StreamBuilder(
-          stream: channel.stream,
-          builder: (context, snapshot) {
-            return Text(snapshot.hasData ? '${snapshot.data}' : '');
-          },
-        ),
         SizedBox(
           width: 120,
           height: 120,
