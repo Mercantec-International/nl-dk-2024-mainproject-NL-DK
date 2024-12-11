@@ -197,8 +197,6 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
                         }
                       },
                     ),
-                    const SizedBox(height: 5),
-                    CustomControllerBtn(label: "label", onPressed: () {}),
                   ],
                 ),
               ),
