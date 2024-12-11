@@ -17,6 +17,7 @@ dependencies:
   http: ^1.2.2
   xml2json: ^6.2.5
   connectivity_plus: ^5.0.2
+  intl: ^0.20.1
 
 flutter_icons:
   image_path: "assets/icon.png"

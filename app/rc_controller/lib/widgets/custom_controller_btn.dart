@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomImageBtn extends StatelessWidget {
-  const CustomImageBtn({super.key, required this.label, required this.onPressed});
+class CustomControllerBtn extends StatelessWidget {
+  const CustomControllerBtn({super.key, required this.label, required this.onPressed});
   final String label;
   final VoidCallback onPressed;
 

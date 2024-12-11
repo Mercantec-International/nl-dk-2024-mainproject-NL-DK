@@ -11,6 +11,7 @@ import 'package:rc_controller/colors.dart';
 import 'package:rc_controller/ui/login/login_bloc.dart';
 import 'package:rc_controller/ui/login/login_events.dart';
 import 'package:rc_controller/ui/selectcar/select_car_page.dart';
+import 'package:rc_controller/widgets/custom_controller_btn.dart';
 import '/classes/helper/GeneralHelper.dart';
 import '/widgets/custom_image_btn.dart';
 import 'package:flutter/material.dart';
@@ -166,13 +167,11 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
                                 passwordController.text.trim().isNotEmpty) {
                               String body =
                                   "{ \"email\": \"${emailController.text}\", \"password\": \"${passwordController.text}\" }";
-
                             // Create item to be sent in request
                             CheckLoginResponse loginResponse = CheckLoginResponse(await API().postRequest(body, '/Users/login'));
                             
                             if (loginResponse.token != null) {
-                              var a = await API().getRequest('/Cars/from-user?userId=${loginResponse.id}');
-                              CheckCarResponse carResponse = CheckCarResponse(a);
+                              CheckCarResponse carResponse = CheckCarResponse(await API().getRequest('/Cars/from-user?userId=${loginResponse.id}'));
                               if (carResponse.Cars.isNotEmpty) {
                                 try {
                                   await Navigator.push(
@@ -184,6 +183,8 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
                               } else {
                                 General.makeSnackBar("You don't have any cars :(");
                               }
+                            } else {
+                              General.makeSnackBar("Could not log in");
                             }
                           } else {
                             General.makeSnackBar(emailController.text.isEmpty
@@ -197,6 +198,7 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
                       },
                     ),
                     const SizedBox(height: 5),
+                    CustomControllerBtn(label: "label", onPressed: () {}),
                   ],
                 ),
               ),

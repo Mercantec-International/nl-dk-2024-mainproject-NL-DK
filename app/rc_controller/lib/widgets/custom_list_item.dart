@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:intl/intl.dart';
 import '../classes/helper/SPHelper.dart';
 import '../classes/helper/GeneralHelper.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,7 @@ class CustomListItem extends StatelessWidget {
                               children: [
                                 const Text("Last emergency:"),
                                 Text(
-                                  lastEmergency.toString(), maxLines: 1,
+                                  DateFormat('hh:mm:ss - dd-MM-yyyy').format(lastEmergency), maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(fontSize: General.isPhone ? 20 : 35),
                                 ),
@@ -78,7 +79,7 @@ class CustomListItem extends StatelessWidget {
                                 const SizedBox(height: 10),
                                 const Text('Created at:'),
                                 Text(
-                                  createdAt.toString(), maxLines: 1,
+                                  DateFormat('hh:mm:ss - dd-MM-yyyy').format(createdAt), maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(fontSize: General.isPhone ? 20 : 35),
                                 ),
