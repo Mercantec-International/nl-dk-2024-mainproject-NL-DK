@@ -136,7 +136,15 @@ namespace api.Controllers
             }
             catch (DbUpdateException)
             {
+                if (!UserExists(user.Id))
+                {
+                    return NotFound();
+                }
 
+                else
+                {
+                    throw;
+                }
             }
 
             return Ok(new

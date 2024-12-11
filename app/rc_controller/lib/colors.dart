@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 Color blue = const Color.fromARGB(255, 0, 174, 239);
 Color orange = const Color.fromARGB(255, 255, 136, 0);
 
-    LinearGradient btnGradient = const LinearGradient(
-      colors: [Color(0xFF1565C0), Color(0xFF00AEEF)],
+LinearGradient btnGradient = const LinearGradient(
+      colors: [Color(0xFF26D7F7), Color(0xFF85EDFF)],
       begin: Alignment.bottomCenter,
       end: Alignment.topCenter,
     ),
@@ -17,11 +17,6 @@ Color orange = const Color.fromARGB(255, 255, 136, 0);
       colors: [Color(0xFF3C7D2F), Color(0xFF5EC44A)],
       begin: Alignment.bottomCenter,
       end: Alignment.topCenter,
-    ),
-    kommuneGradient = const LinearGradient(
-      colors: [Color(0xFF777777), Color(0xFF525252)],
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
     ),
     lockedKommune = const LinearGradient(
       colors: [Color(0xFF474747), Color(0xFF303030)],

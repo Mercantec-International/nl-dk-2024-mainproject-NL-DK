@@ -99,9 +99,9 @@ namespace api.Controllers
             }
             catch (DbUpdateException)
             {
-                if (CarExists(car.Id))
+                if (!CarExists(car.Id))
                 {
-                    return Conflict();
+                    return NotFound();
                 }
                 else
                 {

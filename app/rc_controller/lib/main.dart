@@ -15,17 +15,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorKey: globalNavigatorKey,
-      title: 'RCXD Controller',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: LoginPage()//SelectPage(cars: [CarObject("1", "1", DateTime.now(), DateTime.now(), DateTime.now())])//MyHomePage(title: 'RCXD Controller Home Page'),
-    );
+        navigatorKey: globalNavigatorKey,
+        title: 'RCXD Controller',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home:
+            LoginPage() //SelectPage(cars: [CarObject("1", "1", DateTime.now(), DateTime.now(), DateTime.now())])//MyHomePage(title: 'RCXD Controller Home Page'),
+        );
   }
 }
-
+/*
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -149,104 +150,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      body: Center(
-        child: _isLoggedIn
-            ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Forward button
-                  _buildControlButton('Forward', () {
-                    print('Forward pressed');
-                  }),
-                  // Left, Stop, Right buttons row
-                  const SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      _buildControlButton('Left', () {
-                        print('Left pressed');
-                      }),
-                      const SizedBox(width: 16),
-                      _buildControlButton('Stop', () {
-                        print('Stop pressed');
-                      }),
-                      const SizedBox(width: 16),
-                      _buildControlButton('Right', () {
-                        print('Right pressed');
-                      }),
-                    ],
-                  ),
-                  // Backward button
-                  const SizedBox(height: 16),
-                  _buildControlButton('Backward', () {
-                    print('Backward pressed');
-                  }),
-                ],
-              )
-            : Container(
-                padding: const EdgeInsets.all(16.0),
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                width: 300,
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextFormField(
-                        controller: _usernameController,
-                        decoration: const InputDecoration(
-                          labelText: 'Username',
-                          labelStyle: TextStyle(color: Colors.white),
-                        ),
-                        style: const TextStyle(color: Colors.white),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter username';
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(height: 16),
-                      TextFormField(
-                        controller: _passwordController,
-                        decoration: const InputDecoration(
-                          labelText: 'Password',
-                          labelStyle: TextStyle(color: Colors.white),
-                        ),
-                        style: const TextStyle(color: Colors.white),
-                        obscureText: true,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter password';
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(height: 32),
-                      ElevatedButton(
-                        onPressed: _handleLogin,
-                        child: const Text('Login'),
-                      ),
-                      if (_errorMessage != null)
-                        Padding(
-                          padding: const EdgeInsets.only(top: 16.0),
-                          child: Text(
-                            _errorMessage!,
-                            style: const TextStyle(
-                              color: Colors.red,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
-                ),
-              ),
-      ),
       bottomNavigationBar: BottomAppBar(
         color: Colors.black,
         child: SizedBox(
@@ -265,3 +168,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+*/
