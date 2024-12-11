@@ -1,12 +1,13 @@
 class CarObject {
-  late String id, userId;
+  late String id;
+  late String userId;
   late DateTime createdAt, updatedAt, lastEmergency;
 
-  CarObject(String id, String userID, DateTime createdAt, DateTime updatedAt, DateTime lastEmergency) {
-    id = id;
-    userID = userID;
-    createdAt = createdAt;
-    updatedAt = updatedAt;
-    lastEmergency = lastEmergency; 
+  CarObject(String givenId, String givenUserID, DateTime givenCreatedAt, DateTime givenUpdatedAt, DateTime givenLastEmergency) {
+    id = givenId;
+    userId = givenUserID;
+    createdAt = givenCreatedAt;
+    updatedAt = givenUpdatedAt;
+    lastEmergency = givenLastEmergency; 
   }
 }

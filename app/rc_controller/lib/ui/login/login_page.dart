@@ -143,17 +143,21 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
 
                             // Create item to be sent in request
                             CheckLoginResponse loginResponse = CheckLoginResponse(await API().postRequest(body, '/Users/login'));
-                            CheckCarResponse carResponse = CheckCarResponse(await API().getRequest('/Cars'));
-
-                            if (carResponse.Cars.isNotEmpty) {
-                              try {
-                                await Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SelectPage(cars: carResponse.Cars)));
-
-                                // No catch
-                              } catch (_) {}
+                            
+                            if (loginResponse.token != null) {
+                              var a = await API().getRequest('/Cars/from-user?userId=${loginResponse.id}');
+                              CheckCarResponse carResponse = CheckCarResponse(a);
+                              if (carResponse.Cars.isNotEmpty) {
+                                try {
+                                  await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => SelectPage(cars: carResponse.Cars)));
+                                  // No catch
+                                } catch (_) {}
+                              } else {
+                                General.makeSnackBar("You don't have any cars :(");
+                              }
                             }
                           } else {
                             General.makeSnackBar(emailController.text.isEmpty

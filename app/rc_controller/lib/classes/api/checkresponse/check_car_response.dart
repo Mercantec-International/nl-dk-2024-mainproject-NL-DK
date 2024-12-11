@@ -1,9 +1,7 @@
 import 'package:rc_controller/classes/api/objects/car.dart';
 import '../../helper/GeneralHelper.dart';
-import 'package:xml2json/xml2json.dart';
 import 'package:http/http.dart';
 import 'dart:convert';
-import '/main.dart';
 
 class CheckCarResponse {
   List<CarObject> Cars = [];
@@ -11,13 +9,27 @@ class CheckCarResponse {
   CheckCarResponse(Response response) {
     try {
       final data = jsonDecode(response.body);
+      
+      
       if (data.runtimeType == List<dynamic>) {
         for (var item in data) {
-          Cars.add(CarObject(item["id"], item["userId"], DateTime.parse(item["createdAt"]), DateTime.parse(item["updatedAt"]), DateTime.parse(item["lastEmergency"])));
+          mapToCar(item);
         }
+      } else {
+        mapToCar(data);
       }
     } catch (_) {
       General.makeSnackBar("Could not read response from api");
     }
+  }
+
+  void mapToCar(dynamic item) {
+    String Id = item["id"]; 
+    String UserId = item["userId"];
+    DateTime CreatedAt = DateTime.parse(item["createdAt"]); 
+    DateTime UpdatedAt = DateTime.parse(item["updatedAt"]); 
+    DateTime LastEmergency = DateTime.parse(item["lastEmergency"]);
+          
+    Cars.add(CarObject(Id, UserId, CreatedAt, UpdatedAt, LastEmergency));
   }
 }

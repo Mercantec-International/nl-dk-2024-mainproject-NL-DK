@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rc_controller/classes/api/objects/car.dart';
 import 'package:rc_controller/ui/login/login_page.dart';
-import 'package:rc_controller/ui/selectcar/select_car_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoginPage()//SelectPage(cars: [CarObject("1", "1", DateTime.now(), DateTime.now(), DateTime.now())])//MyHomePage(title: 'RCXD Controller Home Page'),
+      home: const LoginPage()//SelectPage(cars: [CarObject("1", "1", DateTime.now(), DateTime.now(), DateTime.now())])//MyHomePage(title: 'RCXD Controller Home Page'),
     );
   }
 }

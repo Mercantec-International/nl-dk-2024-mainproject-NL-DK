@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rc_controller/ui/selectcar/select_car_events.dart';
 import 'package:rc_controller/widgets/custom_appbar.dart';
 
-import '../../widgets/custom_appbar copy.dart';
+import '../../widgets/custom_list_item.dart';
 import 'select_car_bloc.dart';
 
 class SelectPage extends StatefulWidget {
@@ -36,14 +36,12 @@ class _SelectPageState extends State<SelectPage> {
                 itemBuilder: (context, position) =>
                   widget.cars[position] != null ? DecoratedBox(
                     decoration: BoxDecoration(border: Border.all(width: 0.5)),
-                    // TODO: UPDATE OR REMOVE
-                    child: const CustomListItem(
-                      /*updateFunc: () => context.read<SelectBloc>().add(const UpdateSelectPage()),
-                      company: widget.cars[position].Company!,
-                      plate: widget.cars[position].LicensePlate!,
-                      status: widget.cars[position].CustomerStatus,
-                      id: widget.cars[position].Id!,
-                      index: position,*/
+                    child: CustomListItem(
+                      updateFunc: () => context.read<SelectBloc>().add(const UpdateSelectPage()),
+                      id: widget.cars[position].id,
+                      lastEmergency: widget.cars[position].lastEmergency,
+                      createdAt: widget.cars[position].createdAt,
+                      index: position,
                     ),
                   ) : null,
               ),
