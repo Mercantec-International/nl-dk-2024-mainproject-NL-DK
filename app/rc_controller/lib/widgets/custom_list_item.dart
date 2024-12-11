@@ -8,8 +8,13 @@ import 'package:flutter/material.dart';
 import '../classes/helper/api.dart';
 
 class CustomListItem extends StatelessWidget {
-  CustomListItem({super.key, required this.id, required this.lastEmergency, 
-      required this.createdAt, required this.updateFunc, required this.index}) {}
+  CustomListItem(
+      {super.key,
+      required this.id,
+      required this.lastEmergency,
+      required this.createdAt,
+      required this.updateFunc,
+      required this.index}) {}
   final String id;
   final DateTime lastEmergency, createdAt;
   final int index;
