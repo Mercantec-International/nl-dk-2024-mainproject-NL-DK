@@ -200,7 +200,7 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
                           General.makeSnackBar("No connection");
                         }
                       },
-                    ),
+                    )),
                   ],
                 ),
               ),
