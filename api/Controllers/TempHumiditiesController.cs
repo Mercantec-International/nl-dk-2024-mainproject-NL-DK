@@ -100,9 +100,9 @@ namespace api.Controllers
             }
             catch (DbUpdateException)
             {
-                if (TempHumidityExists(tempHumidity.Id))
+                if (!TempHumidityExists(tempHumidity.Id))
                 {
-                    return Conflict();
+                    return NotFound();
                 }
                 else
                 {
@@ -110,7 +110,7 @@ namespace api.Controllers
                 }
             }
 
-            return CreatedAtAction("GetTempHumidity", new { id = tempHumidity.Id }, tempHumidity);
+            return CreatedAtAction ("GetTempHumidity", new { id = tempHumidity.Id }, tempHumidity);
         }
 
         // DELETE: api/TempHumidities/5

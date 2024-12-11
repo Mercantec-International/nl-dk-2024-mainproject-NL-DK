@@ -82,22 +82,24 @@
         [HttpPost]
         public async Task<ActionResult<RPM>> PostRPM(RPMDTO dto, string token)
         {
-            RPM rPM = MapDTOToRPM(dto);
             //if (await _tokenHelper.ValidToken(token) != "Valid token")
             //{
             //    return BadRequest("Invalid or expired refresh token");
             //}
+            
+            RPM rPM = MapDTOToRPM(dto);
 
             _context.RPMs.Add(rPM);
+            
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (RPMExists(rPM.Id))
+                if (!RPMExists(rPM.Id))
                 {
-                    return Conflict();
+                    return NotFound();
                 }
                 else
                 {

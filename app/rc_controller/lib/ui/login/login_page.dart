@@ -49,97 +49,125 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
         body: BlocProvider(
           create: (_) => LoginBloc(),
           child: BlocBuilder<LoginBloc, LoginState>(
-            builder: (context, state) => SingleChildScrollView(
-              child: Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.only(top: 40),
-                child: Column(
-                  children: [
-                    // TODO: SEPERATE INTO OWN WIDGETS
-                    // Email input
-                    SizedBox(
-                      width: General.isPhone ? 320 : 500,
-                      child: TextField(
-                        textCapitalization: TextCapitalization.characters,
-                        textAlign: TextAlign.center,
-                        textAlignVertical: TextAlignVertical.center,
-                        decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
+            builder: (context, state) => Center(
+              child: SingleChildScrollView(
+                child: Container(
+                  width: General.isPhone ? 320 : 480,
+                  margin: const EdgeInsets.only(top: 40),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                  decoration: BoxDecoration(
+                    color: Colors.black87,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    children: [
+                      // Email input
+                      SizedBox(
+                        width: General.isPhone ? 280 : 440,
+                        child: TextField(
+                          textCapitalization: TextCapitalization.characters,
+                          textAlign: TextAlign.center,
+                          textAlignVertical: TextAlignVertical.center,
+                          style: TextStyle(
+                            fontSize: General.isPhone ? 20 : 32,
+                            color: Colors.white,
+                          ),
+                          decoration: const InputDecoration(
+                            hintText: 'Email',
+                            hintStyle: TextStyle(
+                              color: Colors.white54,
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white70),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
                             contentPadding: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 20),
-                            enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey))),
-                        style: TextStyle(fontSize: General.isPhone ? 25 : 40),
-                        keyboardType: TextInputType.text,
-                        controller: emailController,
-                        onSubmitted: (value) {
-                          context
-                              .read<LoginBloc>()
-                              .add(const UpdateLoginPage());
-                        },
-                        onChanged: (value) async {
-                          context
-                              .read<LoginBloc>()
-                              .add(const UpdateLoginPage());
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-
-                    // Password input
-                    SizedBox(
-                      width: General.isPhone ? 320 : 500,
-                      child: TextField(
-                        autofillHints: [""],
-                        obscureText: true,
-                        textCapitalization: TextCapitalization.characters,
-                        textAlign: TextAlign.center,
-                        textAlignVertical: TextAlignVertical.center,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          contentPadding: EdgeInsets.symmetric(
-                            vertical: 10,
-                            horizontal: 20,
+                              vertical: 10,
+                              horizontal: 20,
+                            ),
                           ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey),
-                          ),
+                          keyboardType: TextInputType.text,
+                          controller: emailController,
+                          onSubmitted: (value) {
+                            context
+                                .read<LoginBloc>()
+                                .add(const UpdateLoginPage());
+                          },
+                          onChanged: (value) async {
+                            context
+                                .read<LoginBloc>()
+                                .add(const UpdateLoginPage());
+                          },
                         ),
-                        style: TextStyle(fontSize: General.isPhone ? 25 : 40),
-                        keyboardType: TextInputType.text,
-                        controller: passwordController,
-                        onSubmitted: (value) {
-                          context
-                              .read<LoginBloc>()
-                              .add(const UpdateLoginPage());
-                        },
-                        onChanged: (value) async {
-                          context
-                              .read<LoginBloc>()
-                              .add(const UpdateLoginPage());
-                        },
                       ),
-                    ),
-                    const SizedBox(height: 20),
+                      const SizedBox(height: 20),
 
-                    // Login BTN
-                    CustomImageBtn(
-                      text: "Login",
-                      icon: Icons.login,
-                      updateFunc: () {
-                        selectedBtnId = selectedBtnId == 1 ? -1 : 1;
-                      },
-                      gradient:
-                          selectedBtnId == 1 ? clickedGradient : btnGradient,
-                      onTap: () async {
-                        // Check connection
-                        General.connectivity =
-                            await Connectivity().checkConnectivity();
-                        if (General.connectivity != ConnectivityResult.none) {
-                          if (emailController.text.trim().isNotEmpty &&
-                              passwordController.text.trim().isNotEmpty) {
-                            String body =
-                                "{ \"email\": \"${emailController.text}\", \"password\": \"${passwordController.text}\" }";
+                      // Password input
+                      SizedBox(
+                        width: General.isPhone ? 280 : 440,
+                        child: TextField(
+                          autofillHints: [""],
+                          obscureText: true,
+                          textCapitalization: TextCapitalization.characters,
+                          textAlign: TextAlign.center,
+                          textAlignVertical: TextAlignVertical.center,
+                          style: TextStyle(
+                            fontSize: General.isPhone ? 20 : 32,
+                            color: Colors.white,
+                          ),
+                          decoration: const InputDecoration(
+                            hintText: 'Password',
+                            hintStyle: TextStyle(
+                              color: Colors.white54,
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white70),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                            contentPadding: EdgeInsets.symmetric(
+                              vertical: 10,
+                              horizontal: 20,
+                            ),
+                          ),
+                          keyboardType: TextInputType.text,
+                          controller: passwordController,
+                          onSubmitted: (value) {
+                            context
+                                .read<LoginBloc>()
+                                .add(const UpdateLoginPage());
+                          },
+                          onChanged: (value) async {
+                            context
+                                .read<LoginBloc>()
+                                .add(const UpdateLoginPage());
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+
+                      // Login BTN
+                      CustomImageBtn(
+                        text: "Login",
+                        icon: Icons.login,
+                        updateFunc: () {
+                          selectedBtnId = selectedBtnId == 1 ? -1 : 1;
+                        },
+                        gradient:
+                            selectedBtnId == 1 ? clickedGradient : btnGradient,
+                        onTap: () async {
+                          // Check connection
+                          General.connectivity =
+                              await Connectivity().checkConnectivity();
+                          if (General.connectivity != ConnectivityResult.none) {
+                            if (emailController.text.trim().isNotEmpty &&
+                                passwordController.text.trim().isNotEmpty) {
+                              String body =
+                                  "{ \"email\": \"${emailController.text}\", \"password\": \"${passwordController.text}\" }";
 
                             // Create item to be sent in request
                             CheckLoginResponse loginResponse = CheckLoginResponse(await API().postRequest(body, '/Users/login'));
