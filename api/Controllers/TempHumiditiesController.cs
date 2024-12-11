@@ -104,7 +104,7 @@ namespace api.Controllers
                 }
             }
 
-            return CreatedAtAction("GetTempHumidity", new { id = tempHumidity.Id }, tempHumidity);
+            return CreatedAtAction("GetTempHumidityFromCar", new { carId = tempHumidity.CarId }, tempHumidity);
         }
 
         // DELETE: api/TempHumidities/5
