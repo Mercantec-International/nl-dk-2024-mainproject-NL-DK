@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:intl/intl.dart';
+import 'package:rc_controller/ui/controller/controller_page.dart';
 import '../classes/helper/SPHelper.dart';
 import '../classes/helper/GeneralHelper.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class CustomListItem extends StatelessWidget {
         GestureDetector(
             onTap: () async {
               // TODO: GO TO CONTROLLER
-              //await Navigator.push(context, MaterialPageRoute(builder: (context) => ControllerPage()));
+              await Navigator.push(context, MaterialPageRoute(builder: (context) => const ControllerPage()));
             },
             child: SizedBox(
               width: MediaQuery.of(context).size.width,
