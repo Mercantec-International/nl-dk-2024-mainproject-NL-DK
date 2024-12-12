@@ -25,7 +25,7 @@ class _SettingsPageState extends State<SettingsPage> {
               alignment: Alignment.topCenter,
               child: Column(
                 children: [
-                  // TODO: ADD ABILITY TO CHANGE CAR AFTER IT WAS SAVED TO SHARED PREFERENCES
+                  // TOO: ADD ABILITY TO CHANGE CAR AFTER IT WAS SAVED TO SHARED PREFERENCES
                 ],
               ),
             ),

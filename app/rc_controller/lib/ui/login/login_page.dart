@@ -1,7 +1,4 @@
 // ignore_for_file: use_build_context_synchronously
-
-//import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rc_controller/classes/api/checkresponse/check_car_response%20copy.dart';
 import 'package:rc_controller/classes/api/checkresponse/check_car_response.dart';
@@ -50,7 +47,7 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
           builder: (context, state) => Center(
             child: SingleChildScrollView(
               child: Container(
-                width: General.isPhone ? 320 : 480,
+                width: 320,
                 margin: const EdgeInsets.only(top: 20),
                 padding:
                     const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
@@ -62,13 +59,12 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
                   children: [
                     // Email input
                     SizedBox(
-                      width: General.isPhone ? 280 : 440,
+                      width: 280,
                       child: TextField(
-                        textCapitalization: TextCapitalization.characters,
                         textAlign: TextAlign.center,
                         textAlignVertical: TextAlignVertical.center,
-                        style: TextStyle(
-                          fontSize: General.isPhone ? 20 : 32,
+                        style: const TextStyle(
+                          fontSize: 20,
                           color: Colors.white,
                         ),
                         decoration: const InputDecoration(
@@ -105,14 +101,13 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
 
                     // Password input
                     SizedBox(
-                      width: General.isPhone ? 280 : 440,
+                      width: 280,
                       child: TextField(
                         obscureText: true,
-                        textCapitalization: TextCapitalization.characters,
                         textAlign: TextAlign.center,
                         textAlignVertical: TextAlignVertical.center,
-                        style: TextStyle(
-                          fontSize: General.isPhone ? 20 : 32,
+                        style: const TextStyle(
+                          fontSize: 20,
                           color: Colors.white,
                         ),
                         decoration: const InputDecoration(
@@ -160,41 +155,34 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
                         gradient:
                             selectedBtnId == 1 ? clickedGradient : btnGradient,
                         onTap: () async {
-                          // Check connection
-                          General.connectivity =
-                              await Connectivity().checkConnectivity();
-                          if (General.connectivity != ConnectivityResult.none) {
-                            if (emailController.text.trim().isNotEmpty &&
-                                passwordController.text.trim().isNotEmpty) {
-                              String body =
-                                  "{ \"email\": \"${emailController.text}\", \"password\": \"${passwordController.text}\" }";
-                            // Create item to be sent in request
-                            CheckLoginResponse loginResponse = CheckLoginResponse(await API().postRequest(body, '/Users/login'));
-                            
-                            if (loginResponse.token != null) {
-                              CheckCarResponse carResponse = CheckCarResponse(await API().getRequest('/Cars/from-user?userId=${loginResponse.id}'));
-                              if (carResponse.Cars.isNotEmpty) {
-                                try {
-                                  await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => SelectPage(cars: carResponse.Cars)));
-                                  // No catch
-                                } catch (_) {}
-                              } else {
-                                General.makeSnackBar("You don't have any cars :(");
-                              }
+                          if (emailController.text.trim().isNotEmpty &&
+                              passwordController.text.trim().isNotEmpty) {
+                            String body =
+                                "{ \"email\": \"${emailController.text}\", \"password\": \"${passwordController.text}\" }";
+                          // Create item to be sent in request
+                          CheckLoginResponse loginResponse = CheckLoginResponse(await API().postRequest(body, '/Users/login'));
+                          
+                          if (loginResponse.token != null) {
+                            CheckCarResponse carResponse = CheckCarResponse(await API().getRequest('/Cars/from-user?userId=${loginResponse.id}'));
+                            if (carResponse.Cars.isNotEmpty) {
+                              try {
+                                General.username = loginResponse.username ?? "User";
+                                await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => SelectPage(cars: carResponse.Cars)));
+                                // No catch
+                              } catch (_) {}
                             } else {
-                              General.makeSnackBar("Could not log in");
+                              General.makeSnackBar("You don't have any cars :(");
                             }
                           } else {
-                            General.makeSnackBar(emailController.text.isEmpty
-                                ? "No email"
-                                : "No password");
+                            General.makeSnackBar("Could not log in");
                           }
                         } else {
-                          // No connection
-                          General.makeSnackBar("No connection");
+                          General.makeSnackBar(emailController.text.isEmpty
+                              ? "No email"
+                              : "No password");
                         }
                       },
                     )),

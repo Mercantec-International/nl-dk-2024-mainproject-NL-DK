@@ -9,7 +9,7 @@ class SP {
     if (value.runtimeType == String) {
       prefs.setString(key, value);
     } else {
-      print("Cannot save type: ${value.runtimeType}");
+      
     }
   }
 

@@ -1,7 +1,6 @@
 // ignore_for_file: must_be_immutable
 import 'package:intl/intl.dart';
 import 'package:rc_controller/ui/controller/controller_page.dart';
-import '../classes/helper/GeneralHelper.dart';
 import 'package:flutter/material.dart';
 
 class CustomListItem extends StatelessWidget {
@@ -32,8 +31,7 @@ class CustomListItem extends StatelessWidget {
                 color: Colors.blue,
                 padding: const EdgeInsets.all(10),
                 child: DefaultTextStyle(
-                  style: TextStyle(
-                    fontSize: General.isPhone ? null : 25,
+                  style: const TextStyle(
                     color: Colors.white,
                   ),
                   child: Row(
@@ -56,7 +54,7 @@ class CustomListItem extends StatelessWidget {
                                   child: Text(id,
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(fontSize: General.isPhone ? 20 : 35),
+                                    style: const TextStyle(fontSize: 20),
                                   ),
                                 )
                               ],
@@ -70,7 +68,7 @@ class CustomListItem extends StatelessWidget {
                                 Text(
                                   DateFormat('hh:mm:ss - dd-MM-yyyy').format(lastEmergency), maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(fontSize: General.isPhone ? 20 : 35),
+                                  style: const TextStyle(fontSize: 20),
                                 ),
                               ],
                             ),
@@ -83,7 +81,7 @@ class CustomListItem extends StatelessWidget {
                                 Text(
                                   DateFormat('hh:mm:ss - dd-MM-yyyy').format(createdAt), maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(fontSize: General.isPhone ? 20 : 35),
+                                  style: const TextStyle(fontSize: 20),
                                 ),
                               ],
                             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rc_controller/classes/helper/GeneralHelper.dart';
 import 'package:rc_controller/ui/selectcar/select_car_events.dart';
 import 'package:rc_controller/widgets/custom_appbar.dart';
 
@@ -19,7 +20,7 @@ class _SelectPageState extends State<SelectPage> {
   // Select page with all given licensplates, used for both recentRegs and checkId
   Widget build(BuildContext context) => Scaffold(
     resizeToAvoidBottomInset: false,
-    appBar: CustomAppBar(updateFunc: () => setState(() {}), customLeading: () => Navigator.pop(context)),
+    appBar: CustomAppBar(additionalText: "Welcome ${General.username}"),
     body: BlocProvider(
       create: (_) => SelectBloc(),
       child: BlocBuilder<SelectBloc, SelectState>(

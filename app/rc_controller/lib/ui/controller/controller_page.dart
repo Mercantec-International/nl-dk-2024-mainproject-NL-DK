@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rc_controller/classes/helper/GeneralHelper.dart';
+import 'package:rc_controller/widgets/custom_appbar.dart';
 import 'package:rc_controller/widgets/custom_controller_btn.dart';
 
 class ControllerPage extends StatefulWidget {
@@ -11,34 +13,11 @@ class ControllerPage extends StatefulWidget {
 class _ControllerPageState extends State<ControllerPage> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
-  String _loggedInUser = "";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  _loggedInUser = "";
-                });
-              },
-              child: Text(
-                _loggedInUser,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+      appBar: CustomAppBar(additionalText: "Welcome ${General.username}"),
       body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

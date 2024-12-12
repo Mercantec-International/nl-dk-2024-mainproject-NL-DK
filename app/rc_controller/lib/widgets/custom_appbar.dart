@@ -44,10 +44,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text('HYPERDRIVE LABS', style: TextStyle(color: Colors.white)),
-          Text(
-            additionalText ?? "Welcome user",
-            style: TextStyle(fontSize: 14, color: Colors.grey[400]),
-          ),
+          if (additionalText != null)
+            Text(
+              additionalText!,
+              style: TextStyle(fontSize: 14, color: Colors.grey[400]),
+            ),
         ],
       ),
       actions: [
