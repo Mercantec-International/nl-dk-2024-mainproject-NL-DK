@@ -93,6 +93,7 @@ namespace api.Controllers
             var car = MapDTOToCar(dto);
 
             _context.Cars.Add(car);
+
             try
             {
                 await _context.SaveChangesAsync();

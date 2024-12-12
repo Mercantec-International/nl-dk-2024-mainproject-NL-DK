@@ -82,8 +82,13 @@ namespace api.Controllers
 
         // POST: api/TempHumidities
         [HttpPost]
-        public async Task<ActionResult<TempHumidity>> PostTempHumidity(TempHumidityDTO dto)
+        public async Task<ActionResult<TempHumidity>> PostTempHumidity(TempHumidityDTO dto, string token)
         {
+            //if (await _tokenHelper.ValidToken(token) != "Valid token")
+            //{
+            //    return BadRequest("Invalid or expired refresh token");
+            //}
+
             TempHumidity tempHumidity = MapDTOToTempHumid(dto);
             
             _context.TempHumidityObjects.Add(tempHumidity);
