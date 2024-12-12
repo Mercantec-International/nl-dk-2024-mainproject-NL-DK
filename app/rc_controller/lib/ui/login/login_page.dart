@@ -5,7 +5,6 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rc_controller/classes/api/checkresponse/check_car_response%20copy.dart';
 import 'package:rc_controller/classes/api/checkresponse/check_car_response.dart';
-import 'package:rc_controller/classes/api/objects/car.dart';
 import 'package:rc_controller/classes/helper/api.dart';
 import 'package:rc_controller/colors.dart';
 import 'package:rc_controller/ui/login/login_bloc.dart';
@@ -44,7 +43,7 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: CustomAppBar(additionalText: "Version: ${General.version}"),
+      appBar: const CustomAppBar(),
       body: BlocProvider(
         create: (_) => LoginBloc(),
         child: BlocBuilder<LoginBloc, LoginState>(
@@ -108,7 +107,6 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
                     SizedBox(
                       width: General.isPhone ? 280 : 440,
                       child: TextField(
-                        autofillHints: [""],
                         obscureText: true,
                         textCapitalization: TextCapitalization.characters,
                         textAlign: TextAlign.center,
@@ -170,44 +168,36 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
                                 passwordController.text.trim().isNotEmpty) {
                               String body =
                                   "{ \"email\": \"${emailController.text}\", \"password\": \"${passwordController.text}\" }";
-
-                              // Create item to be sent in request
-                              CheckLoginResponse loginResponse =
-                                  CheckLoginResponse(await API()
-                                      .postRequest(body, '/Users/login'));
-
-                              if (loginResponse.token != null) {
-                                var a = await API().getRequest(
-                                    '/Cars/from-user?userId=${loginResponse.id}');
-                                CheckCarResponse carResponse =
-                                    CheckCarResponse(a);
-                                if (carResponse.Cars.isNotEmpty) {
-                                  try {
-                                    await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => SelectPage(
-                                                cars: carResponse.Cars)));
-                                    // No catch
-                                  } catch (_) {}
-                                } else {
-                                  General.makeSnackBar(
-                                      "You don't have any cars :(");
-                                }
+                            // Create item to be sent in request
+                            CheckLoginResponse loginResponse = CheckLoginResponse(await API().postRequest(body, '/Users/login'));
+                            
+                            if (loginResponse.token != null) {
+                              CheckCarResponse carResponse = CheckCarResponse(await API().getRequest('/Cars/from-user?userId=${loginResponse.id}'));
+                              if (carResponse.Cars.isNotEmpty) {
+                                try {
+                                  await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => SelectPage(cars: carResponse.Cars)));
+                                  // No catch
+                                } catch (_) {}
+                              } else {
+                                General.makeSnackBar("You don't have any cars :(");
                               }
                             } else {
-                              General.makeSnackBar(emailController.text.isEmpty
-                                  ? "No Email provided"
-                                  : "Intet password");
+                              General.makeSnackBar("Could not log in");
                             }
                           } else {
-                            // No connection
-                            General.makeSnackBar("No Connection");
+                            General.makeSnackBar(emailController.text.isEmpty
+                                ? "No email"
+                                : "No password");
                           }
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 5),
+                        } else {
+                          // No connection
+                          General.makeSnackBar("No connection");
+                        }
+                      },
+                    )),
                   ],
                 ),
               ),
